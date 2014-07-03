@@ -1,5 +1,10 @@
 <div class="jumbotron">
-	<h1>{{job.title}} - {{job.loc}}</h1>
-	<p style="text-decoration: underline;">All applications for Job Id {{job.job}}</p>
+	<h1 ng-if="job">{{job.title}} - {{job.loc}}</h1>
+	<div ng-if="!job">
+		<h3>This position is either closed or was never opened</h3>
+		<a class="btn btn-primary" ng-href="#/jobs">Add Job</a>
+	</div>
+	<p style="text-decoration: underline;">All applications for Job Id <span ng-if="job">{{job.job}}</span></p>
 	<p ng-repeat="app in applications">{{app.name}} - {{app.email}}</p>
+	<p ng-if="applications.length == 0">Their are no applications for this listing</p>
 </div>

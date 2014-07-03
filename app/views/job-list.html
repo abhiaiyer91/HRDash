@@ -5,7 +5,7 @@
 		<input type="text" placeholder="Search..." ng-model="search">
 		<a ng-href="#/jobs" class="btn btn-small">New Job</a>
 		<tr><th>Title</th><th>Location</th></tr>
-		<tr ng-repeat="opening in openings | filter:search" ng-click="view($index)">
+		<tr ng-repeat="opening in openings | filter:search" ng-click="view(opening.job)">
 			<td>{{opening.title}}</td>
 			<td>{{opening.loc}}</td>
 		</tr>

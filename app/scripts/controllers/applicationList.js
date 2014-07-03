@@ -38,7 +38,7 @@ window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'applications'
 
 	$scope.view = function (index) {
 		$location.path('/app/' + index);
-	}
+	};
 }]);
 
 window.app.controller('ApplicationCtrl', ['$scope', '$route', 'applications', function ($scope, $route, applications) {

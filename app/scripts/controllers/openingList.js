@@ -8,10 +8,8 @@ window.app.factory('openings', [function () {
 			return jobs.push(job);
 		},
 		find: function (id) {
-			jobs.forEach(function (job) {
-				console.log("service job" + job.job);
-				console.log("service" + id);
-				if (job.job === id) {return job;}
+			return jobs.filter(function (obj) {
+				return obj.job === id;
 			});
 		}
 	};
@@ -23,13 +21,17 @@ window.app.controller('OpeningList', ['$scope', '$location', 'openings', functio
 
 	$scope.view = function (index) {
 		$location.path('/job/' + index);
-	}
+	};
 }]);
 
 window.app.controller('OpeningCtrl', ['$scope', '$route', '$filter', 'openings', 'applications', function ($scope, $route, $filter,openings, applications) {
-	$scope.job = openings.find($route.current.params.id);
-	console.log($scope.job);
-	$scope.applications = $filter('filter')(applications(),$scope.job.job);
+	$scope.job = false;
+	$scope.applications = false;
+	var open = openings.find($route.current.params.id)[0];
+	if (open) {
+		$scope.job = open;
+		$scope.applications = $filter('filter')(applications(),$scope.job.job);
+	}
 }]);
 
 window.app.controller('AddJobCtrl', ['$scope', 'openings', function ($scope, openings) {
