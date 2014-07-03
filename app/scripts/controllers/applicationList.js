@@ -43,4 +43,5 @@ window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'applications'
 
 window.app.controller('ApplicationCtrl', ['$scope', '$route', 'applications', function ($scope, $route, applications) {
 	$scope.app = applications()[$route.current.params.id];
+
 }]);

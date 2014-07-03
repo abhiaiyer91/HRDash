@@ -2,7 +2,7 @@
 'use strict';
 
   window.app = angular.module('hrdashApp', ['ngRoute']);
-  
+
   window.app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -30,4 +30,9 @@
         redirectTo: '/'
       });
   });
+
+  window.app.config(function($httpProvider) {
+   $httpProvider.defaults.useXDomain = true;
+  });
+  
 }(window));
