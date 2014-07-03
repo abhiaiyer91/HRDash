@@ -1,0 +1,9 @@
+<div class="sidebar-controls">
+	<div ng-if="jobs" ng-include="'views/job-list.html'"></div>
+	<div ng-if="!jobs" ng-include="'views/apps-list.html'"></div>  
+	<div class="text-center">
+		<a class="btn btn-primary" ng-click="jobs=true">Jobs</a>
+		<a class="btn btn-primary" ng-click="jobs=false">Applications</a>
+	</div>    
+</div>
+          

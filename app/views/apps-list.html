@@ -1,0 +1,15 @@
+<div class="jumbotron" ng-controller="ApplicationsCtrl">
+	<div class="table-responsive">
+	<table>
+		<h3>Applications</h3>
+		<input type="text" placeholder="Search..." ng-model="search">
+		<thead><tr><th>Name</th><th>Job</th></tr></thead>
+		<tbody>
+			<tr ng-repeat="app in applications | filter:search" ng-click="view($index)">
+				<td>{{app.name}}</td>
+				<td>{{app.job}}</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>

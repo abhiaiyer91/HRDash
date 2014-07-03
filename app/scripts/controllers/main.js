@@ -7,10 +7,9 @@
  * # MainCtrl
  * Controller of the hrdashApp
  */
-angular.module('hrdashApp')
-  .controller('MainCtrl', function ($scope) {
+window.app.controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
-      'HTML5 Boilerplate',
+      'HTML7 Boilerplate',
       'AngularJS',
       'Karma'
     ];
