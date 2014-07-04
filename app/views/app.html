@@ -1,5 +1,6 @@
 <div class="jumbotron">
-	<h3>{{app.name}} - <a ng-href="#/job/{{app.job}}">{{app.job}}</a></h3>
-	<p>Email: <a href="mailto:{{app.email}}">{{app.email}}</a></p>
-	<p>{{app.cover}}</p>
+	<h3>{{app.attributes.name}} - <a ng-href="#/job/{{app.job}}">{{app.attributes.job}}</a></h3>
+	<p>Email: <a href="mailto:{{app.attributes.email}}">{{app.attributes.email}}</a></p>
+	<p>{{app.attributes.message}}</p>
+	<iframe ng-src="{{trustedSrc(app.attributes.attachment._url)}}" frameborder="0"></iframe>
 </div>

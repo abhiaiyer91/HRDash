@@ -5,7 +5,5 @@ window.app.factory('Parse', function(parseConstant) {
       var query = new Parse.Query(resumeObj);
       return query.find();
     }
-
   };
-
 });
