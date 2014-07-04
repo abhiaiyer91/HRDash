@@ -6,8 +6,8 @@
 		<thead><tr><th>Name</th><th>Job</th></tr></thead>
 		<tbody>
 			<tr ng-repeat="app in applications | filter:search" ng-click="view($index)">
-				<td>{{app.name}}</td>
-				<td>{{app.job}}</td>
+				<td>{{app.attributes.name}}</td>
+				<td>{{app.attributes.job}}</td>
 			</tr>
 		</tbody>
 	</table>
