@@ -1,7 +1,5 @@
 <div class="jumbotron">
   <h1>Mahaska Careers Dashboard</h1>
-  <a class="btn btn-lg btn-success" ng-href="#">Log In</a>
-
   <div ng-repeat="dat in data">
     {{dat.attributes.email}}
     <iframe ng-src="{{trustedSrc(dat.attributes.attachment._url)}}" frameborder="0"></iframe>

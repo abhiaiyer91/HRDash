@@ -2,7 +2,6 @@
 'use strict';
 
   window.app = angular.module('hrdashApp', ['ngRoute']);
-
   window.app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -26,6 +25,14 @@
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'loginCtrl'
+      })
+      .when('/account', {
+        templateUrl: 'views/account.html',
+        controller: 'accountCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -34,5 +41,5 @@
   window.app.config(function($httpProvider) {
    $httpProvider.defaults.useXDomain = true;
   });
-  
+
 }(window));
