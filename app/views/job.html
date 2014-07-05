@@ -1,5 +1,6 @@
 <div class="jumbotron">
-	<h1>{{job.title}} - {{job.loc}}</h1>
-	<p style="text-decoration: underline;">All applications for Job Id {{job.job}}</p>
+	<h3>{{job.attributes.title}} - {{job.attributes.loc}}</h3>
+	<!-- <p style="text-decoration: underline;">All applications for Job Id {{job.attributes.job}}</p> -->
+	<p>{{job.attributes.description}}</p>
 	<p ng-repeat="app in applications">{{app.name}} - {{app.email}}</p>
 </div>

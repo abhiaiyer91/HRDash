@@ -42,4 +42,5 @@
    $httpProvider.defaults.useXDomain = true;
   });
 
+
 }(window));

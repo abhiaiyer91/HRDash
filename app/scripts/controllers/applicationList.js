@@ -1,20 +1,5 @@
 'use strict';
 
-// window.app.factory('applications', ['Parse', function (Parse) {
-// 	function successHandler(response){
-// 		console.log('Service');
-// 	    console.log(response);
-// 	    return response;
-// 	}
-// 	function errorHandler(error){
-// 	    console.log(error);
-// 	}
-
-// 	return function () { 
-// 		return Parse.get().then(successHandler, errorHandler);
-// 	};
-// }]);
-
 window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', function ($scope, $location, Parse) {
 	function successHandler(response){
 		console.log(response);

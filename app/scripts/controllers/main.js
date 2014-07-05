@@ -24,7 +24,6 @@ window.app.controller('MainCtrl', function ($scope, parseConstant, $rootScope, $
     Parse.User.logOut();
   }
 
-
   // function successHandler(response){
   //   console.log('success');
   //   $scope.data = response;
