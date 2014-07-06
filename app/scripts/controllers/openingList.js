@@ -1,22 +1,4 @@
 'use strict';
-//
-// window.app.factory('openings', [function () {
-// 	var jobs = [];
-// 	var openings = {
-// 		all: jobs,
-// 		create: function (job) {
-// 			return jobs.push(job);
-// 		},
-// 		find: function (id) {
-// 			jobs.forEach(function (job) {
-// 				console.log("service job" + job.job);
-// 				console.log("service" + id);
-// 				if (job.job === id) {return job;}
-// 			});
-// 		}
-// 	};
-// 	return openings;
-// }]);
 
 window.app.controller('OpeningList', ['$scope', '$location', 'Parse', function ($scope, $location, Parse) {
 
