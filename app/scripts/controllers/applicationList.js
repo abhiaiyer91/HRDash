@@ -2,7 +2,6 @@
 
 window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', function ($scope, $location, Parse) {
 	function successHandler(response){
-		console.log(response);
 	    $scope.applications = response;
 	    $scope.$apply();
 	}
@@ -19,7 +18,6 @@ window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', funct
 
 window.app.controller('ApplicationCtrl', ['$scope', '$route', 'Parse','$sce', function ($scope, $route, Parse, $sce) {
 	function successHandler(response){
-		console.log(response);
 	    $scope.app = response[$route.current.params.id];
 	    $scope.$apply();
 	}

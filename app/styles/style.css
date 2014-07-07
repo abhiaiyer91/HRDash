@@ -5,3 +5,4 @@ td,th { width: 50%; text-align: center;}
 .btn { margin-bottom: 8px; }
 .header, .footer { margin-left: 5px; }
 .addLabel { width:15%; padding-right: 5px; text-align: left; vertical-align: top; }
+.app-display iframe { width:90%; height:400px; };

@@ -1,6 +1,11 @@
 <div class="jumbotron">
 	<h3>{{job.attributes.title}} - {{job.attributes.loc}}</h3>
-	<!-- <p style="text-decoration: underline;">All applications for Job Id {{job.attributes.job}}</p> -->
 	<p>{{job.attributes.description}}</p>
-	<p ng-repeat="app in applications">{{app.name}} - {{app.email}}</p>
+	<p>
+		<span style="text-decoration: underline;">{{applications.length}} applications for Job Id:</span> 
+		{{job.attributes.job}}
+	</p>
+	<p ng-repeat="app in applications">
+		<a ng-href="#/app/{{$index}}">{{app.attributes.name}}</a> - {{app.attributes.email}}
+	</p>
 </div>

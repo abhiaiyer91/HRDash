@@ -4,7 +4,6 @@ window.app.controller('OpeningList', ['$scope', '$location', 'Parse', function (
 
 	function successHandler(response){
 		$scope.jobs = response;
-		console.log(response);
 		$scope.$apply();
 	}
 	function errorHandler(error){
@@ -17,26 +16,31 @@ window.app.controller('OpeningList', ['$scope', '$location', 'Parse', function (
 	}
 }]);
 
-window.app.controller('OpeningCtrl', ['$scope', '$route','Parse', function ($scope, $route, Parse) {
+window.app.controller('OpeningCtrl', ['$scope', '$route', '$filter','Parse', function ($scope, $route, $filter, Parse) {
 
-	function successHandler(response){
+	function successJob(response){
 		$scope.job = response[$route.current.params.id];
-		console.log($scope.job);
+		Parse.get().then(successApp, errorHandler);
+		$scope.$apply();
+	}
+	function successApp(response){
+		$scope.apps = response;
+		console.log($scope.apps);
+		$scope.applications = $filter('filter')($scope.apps, $scope.job.attributes['job']);
 		$scope.$apply();
 	}
 	function errorHandler(error){
 		alert(error);
 	}
 
-	Parse.getJob().then(successHandler, errorHandler);
+	Parse.getJob().then(successJob, errorHandler);
 
-	// $scope.applications = $filter('filter')(applications(),$scope.job.job);
 }]);
 
-window.app.controller('AddJobCtrl', ['$scope', 'openings', 'Parse', function ($scope, openings, Parse) {
+window.app.controller('AddJobCtrl', ['$scope', 'Parse', function ($scope, Parse) {
 	$scope.data = {};
 	$scope.submit = function(data){
 		Parse.postJob(data);
-		data = '';
+		data = {};
 	}
 }]);
