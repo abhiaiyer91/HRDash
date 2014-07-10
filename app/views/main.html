@@ -1,7 +1,15 @@
-<div class="jumbotron">
-  <h1>Mahaska Careers Dashboard</h1>
-  <div ng-repeat="dat in data">
-    {{dat.attributes.email}}
-    <iframe ng-src="{{trustedSrc(dat.attributes.attachment._url)}}" frameborder="0"></iframe>
+<div ng-hide="loggedIn()" ng-include="'views/not-logged.html'"></div>
+
+<div class="container">
+  <div class="row" ng-show="loggedIn()">
+    <div class="col-sm-4">
+      <div ng-include="'views/sidebar.html'"></div>
+    </div>
+    <div class="col-sm-8">
+      <h1 class="text-center">Mahaska Careers Dashboard</h1>
+      <div class="jumbotron">
+        <p>Welcome to the Mahaska HR Careers portal. Here you can post new jobs to the Mahaska site and view incoming applications. </p>
+      </div>
+    </div>
   </div>
 </div>

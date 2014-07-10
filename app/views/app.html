@@ -1,8 +1,24 @@
-<div class="jumbotron">
-	<h3>{{app.attributes.name}} - <a ng-href="#/job/{{app.job}}">{{app.attributes.job}}</a></h3>
-	<p>Email: <a href="mailto:{{app.attributes.email}}">{{app.attributes.email}}</a></p>
-	<p>{{app.attributes.message}}</p>
-	<div class="app-display">
-		<iframe ng-src="{{trustedSrc(app.attributes.attachment._url)}}" frameborder="0"></iframe>
-	</div>
+<div class="container">
+	<h1 class="text-center">{{app.attributes.name}}</h1>
+	<h1 class="text-center"> For Job #<a ng-href="#/job/{{app.job}}">{{app.attributes.job}}</a></h1>
+	<h1 class="text-center">Email: <a href="mailto:{{app.attributes.email}}">{{app.attributes.email}}</a></h1>
 </div>
+
+<div id="tabs" class="tabs" ng-init="tab = 'resume'">
+    <nav>
+        <ul>
+            <li><a ng-click="tab = 'resume'" href=""><span>RESUME</span></a></li>
+            <li><a ng-click="tab = 'cover'" href=""><span>COVER LETTER</span></a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <section ng-show ="tab === 'resume'" id="section-1">
+					<div class="app-display col-sm-12">
+						<iframe ng-src="{{trustedSrc(app.attributes.attachment._url)}}" frameborder="0"></iframe>
+					</div>
+        </section>
+        <section ng-show="tab === 'cover'" id="section-2">
+					<p class="lead">{{app.attributes.message}}</p>
+        </section>
+    </div><!-- /content -->
+</div><!-- /tabs -->

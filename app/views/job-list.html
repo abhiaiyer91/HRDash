@@ -1,15 +1,19 @@
-<div class="jumbotron" ng-controller="OpeningList">
+<div ng-controller="OpeningList">
+	<h1 class="text-center">Current Job Openings</h1>
 	<div class="table-responsive">
 	<table>
-		<h3>Job Openings</h3>
-		<input type="text" placeholder="Search..." ng-model="search">
-		<a ng-href="#/jobs" class="btn btn-small">New Job</a>
-		<tr><th>Title</th><th>Location</th></tr>
-
-		<tr ng-repeat="job in jobs | filter:search" ng-click="view($index)">
-			<td>{{job.attributes.title}}</td>
-			<td>{{job.attributes.loc}}</td>
-		</tr>
+		<thead>
+			<tr class="table-heading">
+				<th>TITLE</th>
+				<th>LOCATION</th>
+			</tr>
+		</thead>
+		<tbody class="sidebar-table">
+			<tr ng-repeat="job in jobs | filter:search" ng-click="view($index)">
+				<td>{{job.attributes.title}}</td>
+				<td>{{job.attributes.loc}}</td>
+			</tr>
+		</tbody>
 	</table>
 	</div>
 </div>

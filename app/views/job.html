@@ -1,8 +1,11 @@
-<div class="jumbotron">
+<div ng-hide="loggedIn()" ng-include="'views/not-logged.html'"></div>
+
+
+<div ng-show="loggedIn()">
 	<h3>{{job.attributes.title}} - {{job.attributes.loc}}</h3>
 	<p>{{job.attributes.description}}</p>
 	<p>
-		<span style="text-decoration: underline;">{{applications.length}} applications for Job Id:</span> 
+		<span style="text-decoration: underline;">{{applications.length}} applications for Job Id:</span>
 		{{job.attributes.job}}
 	</p>
 	<p ng-repeat="app in applications">

@@ -1,7 +1,7 @@
 'use strict';
 
 window.app.controller('loginCtrl', function($scope, $location, $rootScope, parseConstant){
-
+  $scope.login = true;
   //We're going to redirect you to /login if youre not logged in muthafucka
 
   if ($rootScope.loggedIn() !== true){

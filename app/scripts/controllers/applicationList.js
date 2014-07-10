@@ -3,6 +3,7 @@
 window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', function ($scope, $location, Parse) {
 	function successHandler(response){
 	    $scope.applications = response;
+			console.log($scope.applications);
 	    $scope.$apply();
 	}
 	function errorHandler(error){
@@ -30,5 +31,7 @@ window.app.controller('ApplicationCtrl', ['$scope', '$route', 'Parse','$sce', fu
 	$scope.trustedSrc = function(src){
     return $sce.trustAsResourceUrl("http://docs.google.com/gview?url=" + src + '&embedded=true&output=embed');
   }
+
+
 
 }]);
