@@ -2,15 +2,30 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto:100);
 
-h1,h2,h3,p,input, table {
+h1,h2,h3,h4,p,a,span,input, table {
   font-family: 'Roboto', sans-serif;
 }
 
+html,body{
+  height:100%;
+}
 
+body{
+  display:table;
+  width:100%;
+  }
+
+.full-view{
+  height: 100%;
+}
 /* COLORS */
 
 .red_dark {
   background: #ee2629;
+}
+
+.white {
+  color:white;
 }
 
 .mahaska_blue{
@@ -199,6 +214,18 @@ h1,h2,h3,p,input, table {
   display: none;
 }
 
+/* FOOTER */
+.footer{
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  display: table-row;
+  background-color: #242422;
+}
+
+.footer p a{
+  color: white;
+}
 
 /* LOGIN */
 
@@ -469,6 +496,59 @@ table, tbody, thead, tr { width: 100%; }
     }
 }
 
+/*JOB VIEW*/
+
+.apply-tile{
+  border: 1px solid black;
+  margin:5px;
+  padding: 5px;
+
+}
+
+.job-tile{
+  border: 4px solid #00b4bb;
+  height: 300px;
+}
+
+.flat-table {
+		margin-bottom: 20px;
+		border-collapse:collapse;
+		font-family: 'Roboto', sans-serif;
+		border: none;
+                border-radius: 3px;
+               -webkit-border-radius: 3px;
+               -moz-border-radius: 3px;
+	}
+	.flat-table th, .flat-table td {
+		box-shadow: inset 0 -1px rgba(0,0,0,0.25),
+			inset 0 1px rgba(0,0,0,0.25);
+	}
+	.flat-table th {
+    background: #00b4bb;
+		font-weight: normal;
+		-webkit-font-smoothing: antialiased;
+		padding: 1em;
+		color: #fff;
+		text-shadow: 0 0 1px rgba(255,255,255,0.1);
+		font-size: 1.5em;
+	}
+	.flat-table td {
+		color: #fff;
+		padding: 0.7em 1em 0.7em 1.15em;
+		text-shadow: 0 0 1px rgba(255,255,255,0.1);
+		font-size: 1.4em;
+	}
+	.flat-table tr {
+		-webkit-transition: background 0.3s, box-shadow 0.3s;
+		-moz-transition: background 0.3s, box-shadow 0.3s;
+		transition: background 0.3s, box-shadow 0.3s;
+	}
+	.flat-table-1 {
+		background: #d7d7d7;
+	}
+	.flat-table-1 tr:hover {
+		background: #00b4bb;
+	}
 
 
 .jumbotron { height: 400px; padding: 10px 10px; margin: 0 15px 15px 15px;}

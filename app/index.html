@@ -35,6 +35,7 @@
         <div class="navbar-collapse collapse">
             <ul class="pull-right menu-mahaska">
               <li><a ng-href="#">Home</a></li>
+              <li><a ng-href="#/applications">Applications</a></li>
               <li><a ng-href="#/jobs">Jobs</a></li>
               <li class="dropdown" ng-show="loggedIn()">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome,  {{ currentUser.get("username") }} <span class="caret"></span></a>
@@ -57,13 +58,15 @@
 
 
       <div class="row">
-          <div ng-view=""></div>
+          <div class="full-view" ng-view=""></div>
       </div>
 
-
-      <div class="footer container">
-        <p><span class="glyphicon glyphicon-tree-deciduous"></span> anthro.is</p>
+    <div class="footer">
+      <div class="container">
+        <p class="text-center lead"><a href="http://anthro.is"><img src="http://cdn.shopify.com/s/files/1/0467/3217/t/3/assets/icon_50x50.png?6783" alt=""></a></p>
       </div>
+    </div>
+
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

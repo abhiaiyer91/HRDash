@@ -1,0 +1,18 @@
+<div ng-controller="OpeningList">
+  <h1 class="text-center">Job Openings</h1><hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 job-tile"ng-repeat="job in jobs | filter:search">
+          <h4>{{job.attributes.title}}</h4>
+          <br>
+          <p class="lead">Location: {{job.attributes.loc}}</p>
+          <p>Summary: <br>{{job.attributes.description | truncate:200}}</p>
+          <div class="">
+            <a class="button-small mahaska_blue rounded" ng-click="view($index)">View</a>
+            <a class="button-small red_dark rounded" ng-click="delete(job.id)">Delete</a>
+          </div>
+      </div>
+    </div>
+    <hr><br>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h1 class="text-center">Applications</h1><hr>
+
+<div class="row">
+  <table class="flat-table flat-table-1" ng-controller="ApplicationsCtrl">
+  	<thead>
+        <th class="text-center">NAME</th>
+        <th class="text-center">EMAIL</th>
+        <th class="text-center">JOB ID</th>
+        <th class="text-center">DATE APPLIED</th>
+
+  	</thead>
+  	<tbody>
+      <tr class="text-center" ng-repeat="app in applications | filter:search" ng-click="view($index)">
+        <td>{{app.attributes.name}}</td>
+        <td><a href="mailt:{{app.attributes.email}}" class="white">{{app.attributes.email}}</a></td>
+        <td>{{app.attributes.job}}</td>
+        <td>{{app.createdAt | date}}</td>
+      </tr>
+  	</tbody>
+  </table>
+</div>

@@ -2,13 +2,40 @@
 'use strict';
 
   window.app = angular.module('hrdashApp', ['ngRoute']);
-  window.app.config(function ($routeProvider) {
+
+  window.app.filter('truncate', function(){
+  return function (text, length, end) {
+      if (isNaN(length))
+          length = 10;
+
+      if (end === undefined)
+          end = "...";
+
+      if (text.length <= length || text.length - end.length <= length) {
+          return text;
+      }
+      else {
+          return String(text).substring(0, length-end.length) + end;
+      }
+
+  };
+});
+
+  window.app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/applications', {
+        templateUrl: 'views/application-list.html',
+        controller: 'ApplicationCtrl'
+      })
       .when('/jobs', {
+        templateUrl: 'views/jobs-list-view.html',
+        controller: 'OpeningCtrl'
+      })
+      .when('/new-job', {
         templateUrl: 'views/add-job.html',
         controller: 'AddJobCtrl'
       })
@@ -19,11 +46,6 @@
       .when('/app/:id', {
         templateUrl: 'views/app.html',
         controller: 'ApplicationCtrl'
-      })
-      .when('/about', {
-        // Keep this and use for a FAQs and How To Guide
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
       })
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -36,11 +58,6 @@
       .otherwise({
         redirectTo: '/'
       });
-  });
-
-  window.app.config(function($httpProvider) {
-   $httpProvider.defaults.useXDomain = true;
-  });
-
+  }]);
 
 }(window));

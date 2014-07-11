@@ -1,14 +1,23 @@
 <div ng-hide="loggedIn()" ng-include="'views/not-logged.html'"></div>
 
 
-<div ng-show="loggedIn()">
-	<h3>{{job.attributes.title}} - {{job.attributes.loc}}</h3>
-	<p>{{job.attributes.description}}</p>
+<div class="container" ng-show="loggedIn()">
+	<h1 class="text-center">{{job.attributes.title}}</h1><h1 class="text-center">{{job.attributes.loc}}</h1>
+	<h2><b>Description:</b></h2>
+	<p class="lead">{{job.attributes.description}}</p>
+	<hr>
+	<h2>Who's Applying?</h1>
 	<p>
-		<span style="text-decoration: underline;">{{applications.length}} applications for Job Id:</span>
-		{{job.attributes.job}}
+		<span style="text-decoration: underline;"><h3>{{applications.length}} applications for Job Id:</span>
+		{{job.attributes.job}}</h3>
 	</p>
-	<p ng-repeat="app in applications">
-		<a ng-href="#/app/{{$index}}">{{app.attributes.name}}</a> - {{app.attributes.email}}
-	</p>
+	<br>
+	<div class="row">
+		<div class="col-sm-2 text-center apply-tile" ng-repeat="app in applications">
+			<h3>
+				<a ng-href="#/app/{{$index}}" class="text-center">{{app.attributes.name}}</a><br><span>{{app.attributes.email}}</span><br> <a class="button-small rounded red_dark" ng-href="#/app/{{$index}}">View</a>
+			</h3>
+		</div>
+	</div>
+	<hr>
 </div>

@@ -24,6 +24,12 @@ window.app.factory('Parse', function(parseConstant) {
     postJob: function(data){
       var jobPosting = new Parse.Object("Jobs");
       jobPosting.save(data).then(successHandler, errorHandler);
+    },
+    delete: function(id){
+      var jobPosting = Parse.Object.extend("Jobs");
+      var query = new Parse.Query(jobPosting);
+       console.log(query.get(id));
+       return query.get(id);
     }
   };
 });
