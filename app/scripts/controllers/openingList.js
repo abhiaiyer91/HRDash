@@ -1,6 +1,6 @@
 'use strict';
 
-window.app.controller('OpeningList', ['$scope', '$location', 'Parse', '$window', function ($scope, $location, Parse, $window) {
+window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$window', function ($scope, $location, Parse, $window) {
 
 	function successHandler(response){
 		$scope.jobs = response;
@@ -11,17 +11,12 @@ window.app.controller('OpeningList', ['$scope', '$location', 'Parse', '$window',
 	}
 	Parse.getJob().then(successHandler, errorHandler);
 
+    $scope.viewSingle = function(id){
+        $location.path('/job/' + id + '/edit');
+    };
+
 	$scope.view = function (index) {
 		$location.path('/job/' + index);
-	}
-	function success(response){
-		response.destroy({});
-		alert('Successfully Deleted Job');
-		$window.location.href =  '#/';
-
-	}
-	$scope.delete = function(id){
-		Parse.delete(id).then(success,errorHandler);
 	}
 }]);
 
@@ -46,9 +41,17 @@ window.app.controller('OpeningCtrl', ['$scope', '$route', '$filter','Parse', fun
 }]);
 
 window.app.controller('AddJobCtrl', ['$scope', 'Parse', '$window', function ($scope, Parse, $window) {
-	$scope.data = {};
+	function successHandler(){
+        alert('Successfully Added Job Post');
+        console.log('Success!!');
+    }
+
+    function errorHandler(){
+        console.log('Error');
+    }
+    $scope.data = {};
 	$scope.submit = function(data){
-		Parse.postJob(data);
+		Parse.postJob(data).then(successHandler, errorHandler);
 		$window.location.href = '/';
 		data = {};
 

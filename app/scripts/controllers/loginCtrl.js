@@ -1,9 +1,6 @@
 'use strict';
 
-window.app.controller('loginCtrl', function($scope, $location, $rootScope, parseConstant){
-  $scope.login = true;
-  //We're going to redirect you to /login if youre not logged in muthafucka
-
+window.app.controller('loginCtrl', ['$scope', '$location', '$rootScope', 'ParseLoginService', function($scope, $location, $rootScope, ParseLoginService){
   if ($rootScope.loggedIn() !== true){
     $location.path('/login');
   }
@@ -21,11 +18,8 @@ window.app.controller('loginCtrl', function($scope, $location, $rootScope, parse
     console.log('ERROR');
   }
 
-  $scope.login = function(){
-    var username = $scope.login.username;
-    var password = $scope.login.password
-
-    Parse.User.logIn(username, password).then(loginSuccessful, loginUnsuccessful);
+  $scope.login = function(data){
+      ParseLoginService.login(data).then(loginSuccessful,loginUnsuccessful);
   };
 
-})
+}]);

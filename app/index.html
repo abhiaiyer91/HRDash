@@ -35,12 +35,11 @@
         <div class="navbar-collapse collapse">
             <ul class="pull-right menu-mahaska">
               <li><a ng-href="#">Home</a></li>
-              <li><a ng-href="#/applications">Applications</a></li>
-              <li><a ng-href="#/jobs">Jobs</a></li>
+              <li><a ng-href="#/applications" ng-show="loggedIn()">Applications</a></li>
+              <li><a ng-href="#/jobs" ng-show="loggedIn()">Jobs</a></li>
               <li class="dropdown" ng-show="loggedIn()">
                 <a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome,  {{ currentUser.get("username") }} <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li ng-cloak ng-show="loggedIn()"><a href="#account">Account</a></li>
                   <li ng-cloak ng-show="loggedIn()"><a href="#" ng-click="logout()">Log out</a></li>
                 </ul>
               </li>
@@ -90,10 +89,11 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/loginCtrl.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/jobSingleCtrl.js"></script>
         <script src="scripts/controllers/openingList.js"></script>
         <script src="scripts/controllers/applicationList.js"></script>
         <script src="scripts/services/parseService.js"></script>
+        <script src="scripts/services/parseLoginService.js"></script>
         <script src="scripts/services/parseConstant.js"></script>
         <script src="scripts/filters/truncateFilter.js"></script>
         <!-- endbuild -->

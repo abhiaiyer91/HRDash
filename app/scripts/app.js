@@ -38,7 +38,7 @@
       })
       .when('/jobs', {
         templateUrl: 'views/jobs-list-view.html',
-        controller: 'OpeningCtrl'
+        controller: 'OpeningList'
       })
       .when('/new-job', {
         templateUrl: 'views/add-job.html',
@@ -56,9 +56,9 @@
         templateUrl: 'views/login.html',
         controller: 'loginCtrl'
       })
-      .when('/account', {
-        templateUrl: 'views/account.html',
-        controller: 'accountCtrl'
+      .when('/job/:id/edit', {
+         templateUrl: 'views/edit.html',
+         controller: 'OpeningList'
       })
       .otherwise({
         redirectTo: '/'
