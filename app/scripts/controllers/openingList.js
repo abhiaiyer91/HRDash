@@ -52,7 +52,7 @@ window.app.controller('AddJobCtrl', ['$scope', 'Parse', '$window', function ($sc
     $scope.data = {};
 	$scope.submit = function(data){
 		Parse.postJob(data).then(successHandler, errorHandler);
-		$window.location.href = '/';
+		$window.location.href = '#/';
 		data = {};
 
 	}
