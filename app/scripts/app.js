@@ -3,23 +3,28 @@
 
   window.app = angular.module('hrdashApp', ['ngRoute']);
 
-  window.app.filter('truncate', function(){
-  return function (text, length, end) {
-      if (isNaN(length))
-          length = 10;
+  window.app.run(['$rootScope', '$location', function($rootScope, $location){
+      //Enumerate routes that don't need authentication
+      var routesThatDontRequireAuth = ['/login'];
 
-      if (end === undefined)
-          end = "...";
+      //check if current location matches route
+      var routeClean = function (route) {
+          return _.find(routesThatDontRequireAuth,
+              function (noAuthRoute) {
+                  return _.str.startsWith(route, noAuthRoute);
+              });
+      };
 
-      if (text.length <= length || text.length - end.length <= length) {
-          return text;
-      }
-      else {
-          return String(text).substring(0, length-end.length) + end;
-      }
+      $rootScope.$on('$routeChangeStart', function(event,next,current){
+          // if route requires auth and user is not logged in
+          if (!routeClean($location.url()) && !$rootScope.loggedIn()) {
+              // redirect back to login
+              $location.path('/login');
+          }
+      });
+  }]);
 
-  };
-});
+
 
   window.app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -59,5 +64,7 @@
         redirectTo: '/'
       });
   }]);
+
+
 
 }(window));

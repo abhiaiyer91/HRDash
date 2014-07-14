@@ -1,7 +1,9 @@
 {
   "name": "hrdash",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "underscore.string": "^2.3.3"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
