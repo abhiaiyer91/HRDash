@@ -1,4 +1,4 @@
-window.app.filter('truncate', function(){
+window.app.filter('truncate', [function(){
     return function (text, length, end) {
         if (isNaN(length))
             length = 10;
@@ -14,4 +14,4 @@ window.app.filter('truncate', function(){
         }
 
     };
-});
+}]);

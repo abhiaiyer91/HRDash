@@ -1,5 +1,5 @@
 'use strict';
-window.app.factory('Parse', function(parseConstant) {
+window.app.factory('Parse', ['parseConstant', function(parseConstant) {
   return {
     get: function(){
       var resumeObj = Parse.Object.extend("Resume");
@@ -22,4 +22,4 @@ window.app.factory('Parse', function(parseConstant) {
       return jobPosting.save(data);
     }
   };
-});
+}]);

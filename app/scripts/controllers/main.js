@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the hrdashApp
  */
-window.app.controller('MainCtrl', function ($scope, ParseLoginService, $rootScope, $location) {
+window.app.controller('MainCtrl', ['$scope', 'ParseLoginService', '$rootScope', '$location', function ($scope, ParseLoginService, $rootScope, $location) {
 
   $rootScope.currentUser = ParseLoginService.getCurrentUser();
 
@@ -24,4 +24,4 @@ window.app.controller('MainCtrl', function ($scope, ParseLoginService, $rootScop
       return ParseLoginService.logout();
   };
 
-});
+}]);
