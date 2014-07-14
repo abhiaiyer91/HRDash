@@ -1,0 +1,1 @@
+<div ng-controller="OpeningList"> <h1 class="text-center">Current Job Openings</h1> <div class="table-responsive"> <table> <thead> <tr class="table-heading"> <th>TITLE <th>LOCATION   <tbody class="sidebar-table"> <tr ng-repeat="job in jobs | filter:search" ng-click="view($index)"> <td>{{job.attributes.title}} <td>{{job.attributes.loc}}   </table> </div> </div>
