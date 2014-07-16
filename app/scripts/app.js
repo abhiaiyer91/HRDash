@@ -1,7 +1,7 @@
 (function(window){
 'use strict';
 
-  window.app = angular.module('hrdashApp', ['ngRoute']);
+  window.app = angular.module('hrdashApp', ['ngRoute', 'summernote']);
 
   window.app.run(['$rootScope', '$location', function($rootScope, $location){
       //Enumerate routes that don't need authentication
@@ -24,7 +24,9 @@
       });
   }]);
 
-
+   window.app.config(function($httpProvider){
+       $httpProvider.defaults.useXDomain = true;
+    });
 
   window.app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider

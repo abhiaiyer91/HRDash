@@ -4,10 +4,10 @@ window.app.controller('weatherCtrl', ['$scope', 'weatherService', '$rootScope', 
     function successHandler(data){
         var lol = data.current_observation
         $scope.weatherArray.push(data.current_observation);
+    }
 
-        console.log($scope.weatherArray);
-//        $scope.location = data['location']['city'];
-//        $scope.temp_f = data['current_observation']['temp_f'];
+    function successFb(data){
+        $scope.fb = data.likes;
     }
 
     function errorHandler(error){
@@ -19,8 +19,17 @@ window.app.controller('weatherCtrl', ['$scope', 'weatherService', '$rootScope', 
         weatherService.get(city, state).then(successHandler, errorHandler);
     };
 
+    weatherService.fb().then(successFb,errorHandler);
 
-    console.log($rootScope.jobs);
+    weatherService.initialize();
+
+
+
+        weatherService.connectTwitter().then(function() {
+            console.log('hello');
+        });
+
+
 
 }]);
 

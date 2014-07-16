@@ -17,6 +17,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/summernote.min.css">
     <!-- endbuild -->
   </head>
   <body ng-app="hrdashApp" ng-controller="MainCtrl">
@@ -124,7 +125,7 @@
         <!-- BEGIN FOOTER -->
         <footer>
             &copy; 2014 <a href="http://anthro.is">anthro.is</a><br />
-            Powered by Mochi.io
+            Powered by mochi.io
         </footer>
         <!-- END FOOTER -->
 
@@ -143,9 +144,13 @@
         <script src="scripts/vendor/json3.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script src="scripts/vendor/angular-route.js"></script>
+        <script src="scripts/vendor/angular-resource.js"></script>
         <script src="scripts/vendor/underscore.js"></script>
         <script src="scripts/vendor/underscore.string.min.js"></script>
         <script src="//www.parsecdn.com/js/parse-1.2.15.js"></script>
+        <script src="scripts/vendor/oauth.js"></script>
+        <script src="scripts/vendor/summernote.min.js"></script>
+        <script src="scripts/vendor/angular-summernote.min.js"></script>
         <!-- End Bower Components -->
 
         <!-- Angular Components -->
@@ -163,9 +168,11 @@
         <script src="scripts/filters/truncateFilter.js"></script>
         <script src="scripts/filters/unique.js"></script>
         <script src="scripts/directives/sidebarDirective.js"></script>
+        <script src="scripts/directives/summerNoteDirective.js"></script>
 
         <!-- End Angular Components -->
 
         <!-- endbuild -->
-</body>
+
+  </body>
 </html>

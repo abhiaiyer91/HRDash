@@ -18,7 +18,7 @@
 
 <!-- BEGIN SiTE INFORMATIONS -->
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="the-box no-border bg-success tiles-information">
             <i class="fa fa-users icon-bg"></i>
             <div class="tiles-inner text-center">
@@ -31,7 +31,7 @@
             </div><!-- /.tiles-inner -->
         </div><!-- /.the-box no-border -->
     </div><!-- /.col-sm-3 -->
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="the-box no-border bg-primary tiles-information">
             <i class="fa fa-shopping-cart icon-bg"></i>
             <div class="tiles-inner text-center">
@@ -44,7 +44,7 @@
             </div><!-- /.tiles-inner -->
         </div><!-- /.the-box no-border -->
     </div><!-- /.col-sm-3 -->
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="the-box no-border bg-danger tiles-information">
             <i class="fa fa-comments icon-bg"></i>
             <div class="tiles-inner text-center">
@@ -57,28 +57,27 @@
             </div><!-- /.tiles-inner -->
         </div><!-- /.the-box no-border -->
     </div><!-- /.col-sm-3 -->
+    <div class="col-xs-3">
+
+        <div class="the-box no-border tiles-information" style="padding-top: 0px;">
+            <div class="tiles-inner text-center">
+                <div class="tiles facebook-tile text-center">
+                    <i class="fa fa-facebook fa-1x"></i>
+                    <h1 class=""bolded"><a href="">{{fb}} likes</a></h1>
+                    <div class="progress no-rounded progress-xs">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                        </div><!-- /.progress-bar .progress-bar-danger -->
+                    </div><!-- /.progress .no-rounded -->
+                </div><!-- /.tiles .facebook-tile -->
+
+            </div><!-- /.tiles-inner -->
+         </div>
+    </div><!-- /.col-xs-6 -->
 </div><!-- /.row -->
 <!-- END SITE INFORMATIONS -->
 
-    <!-- BEGIN SOCIAL TILES -->
-    <div class="row">
-        <div class="col-xs-6">
-            <div class="tiles facebook-tile text-center">
-                <i class="fa fa-facebook icon-lg-size"></i>
-                <h4><a href="#fakelink">10K likes</a></h4>
-            </div><!-- /.tiles .facebook-tile -->
-        </div><!-- /.col-xs-6 -->
-        <div class="col-xs-6">
-            <div class="tiles twitter-tile text-center">
-                <i class="fa fa-twitter icon-lg-size"></i>
-                <h4><a href="#fakelink">2K followers</a></h4>
-            </div><!-- /.tiles .twitter-tile -->
-        </div><!-- /.col-xs-6 -->
-    </div><!-- /.row -->
-    <!-- END SOCIAL TILES -->
 
-
-<h4 class="text-center small-heading more-margin-bottom">COMPANY PLACES WEATHER</h4>
+<h4 class="text-center small-heading more-margin-bottom">COMPANY WEATHER</h4>
 
 <div class="row" ng-controller="weatherCtrl">
     <div class="col-sm-3" ng-init="weatherGet(job.attributes.city, job.attributes.state)" ng-repeat="job in jobs | unique: 'attributes.city'| limitTo:4">
@@ -91,7 +90,7 @@
                  'bg-success': $index === 2,
                  'bg-primary': $index === 3
                  }">
-                <img src="{{weatherArray[$index].icon_url}}"/>
+                <img ng-cloak src="{{weatherArray[$index].icon_url}}"/>
                 <h2 class="bolded less-distance">{{weatherArray[$index].temperature_string}}<i class="wi-degrees"></i></h2>
                 <h4>{{weatherArray[$index].weather}}</h4>
             </div><!-- /.the-box no-border bg-warning no-margin -->

@@ -1,6 +1,6 @@
 'use strict';
 
-window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$window', '$rootScope', function ($scope, $location, Parse, $window, $rootScope) {
+window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$rootScope', function ($scope, $location, Parse, $rootScope) {
 
 	function successHandler(response){
         console.log(response);
@@ -44,9 +44,11 @@ window.app.controller('OpeningCtrl', ['$scope', '$route', '$filter','Parse', fun
 }]);
 
 window.app.controller('AddJobCtrl', ['$scope', 'Parse', '$window', function ($scope, Parse, $window) {
+
 	function successHandler(){
         alert('Successfully Added Job Post');
         console.log('Success!!');
+        console.log($scope.data.description);
     }
 
     function errorHandler(){
@@ -55,8 +57,21 @@ window.app.controller('AddJobCtrl', ['$scope', 'Parse', '$window', function ($sc
     $scope.data = {};
 	$scope.submit = function(data){
 		Parse.postJob(data).then(successHandler, errorHandler);
-		$window.location.href = '/HRDash/#/';
+		$window.location.href = '/#/';
 		data = {};
 
 	}
+    $scope.options = {
+        height: 300,
+        focus: true,
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+        ]
+    }
+
+
 }]);
