@@ -83,7 +83,7 @@
     <!-- Begin nav message -->
     <li class="dropdown" ng-controller="ApplicationsCtrl">
         <a href="" class="dropdown-toggle" data-toggle="dropdown">
-            <span class="badge badge-success icon-count">{{appcount}}</span>
+            <span class="badge badge-success icon-count">{{unseen}}</span>
             <i class="fa fa-envelope"></i>
         </a>
         <ul class="dropdown-menu square margin-list-rounded with-triangle" >
@@ -93,14 +93,14 @@
                 </div><!-- /.nav-dropdown-heading -->
                 <div class="nav-dropdown-content scroll-nav-dropdown">
                     <ul>
-                        <li ng-click="view($index)" class="unread" ng-repeat="app in applications"><a href="">
+                        <li ng-click="view(app.id)" class="unread" ng-repeat="app in applications | filter:'!seen'"><a href="">
                             <i class="fa fa-bookmark-o ava-sidebar"></i>
                             {{app.attributes.name}} - Job ID # {{app.attributes.job}}
                             <span class="small-caps">{{app.createdAt | date}}</span>
                         </a></li>
                     </ul>
                 </div><!-- /.nav-dropdown-content scroll-nav-dropdown -->
-                <a href="#/jobs" class="btn btn-primary btn-square btn-block">See all</a>
+                <a href="#/applications" class="btn btn-primary btn-square btn-block">See all</a>
             </li>
         </ul>
     </li>

@@ -1,5 +1,8 @@
 <h1 class="text-center">Applications</h1><hr>
 
+<input type="text" ng-model="search" class="text-center"/>
+<br>
+<br>
 <div class="row">
   <table class="flat-table flat-table-1" ng-controller="ApplicationsCtrl">
   	<thead>
@@ -10,7 +13,7 @@
 
   	</thead>
   	<tbody>
-      <tr class="text-center" ng-repeat="app in applications | filter:search" ng-click="view($index)">
+      <tr class="text-center" ng-repeat="app in applications | filter:search" ng-click="view(app.id)">
         <td>{{app.attributes.name}}</td>
         <td><a href="mailt:{{app.attributes.email}}" class="white">{{app.attributes.email}}</a></td>
         <td>{{app.attributes.job}}</td>

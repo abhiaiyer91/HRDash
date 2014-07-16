@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-sm-2 text-center apply-tile" ng-repeat="app in applications">
 			<h3>
-				<a ng-href="#/app/{{$index}}" class="text-center">{{app.attributes.name}}</a><br><span>{{app.attributes.email}}</span><br> <a class="button-small rounded red_dark" ng-href="#/app/{{$index}}">View</a>
+				<a ng-href="#/app/{{app.id}}" class="text-center">{{app.attributes.name}}</a><br><span>{{app.attributes.email}}</span><br> <a class="button-small rounded red_dark" ng-href="#/app/{{app.id}}">View</a>
 			</h3>
 		</div>
 	</div>

@@ -6,6 +6,16 @@ window.app.factory('Parse', ['parseConstant', function(parseConstant) {
       var query = new Parse.Query(resumeObj);
       return query.find();
     },
+    getById: function (id) {
+      var resumeObj = Parse.Object.extend("Resume");
+      var query = new Parse.Query(resumeObj);
+      return query.get(id);
+    },
+    opened: function(resume) {
+      var resumeObj = Parse.Object.extend("Resume");
+      var query = new Parse.Query(resumeObj);
+      return query.get(resume.id);
+    },
     getJob: function(){
       var jobPosting = Parse.Object.extend("Jobs");
       var query = new Parse.Query(jobPosting);
@@ -14,7 +24,6 @@ window.app.factory('Parse', ['parseConstant', function(parseConstant) {
     getJobById: function(id){
       var jobPosting = Parse.Object.extend("Jobs");
       var query = new Parse.Query(jobPosting);
-      console.log(query.get(id));
       return query.get(id);
     },
     postJob: function(data){

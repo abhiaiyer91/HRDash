@@ -27,7 +27,7 @@
 <div class="tab-pane fade" id="notification-sidebar" ng-controller="ApplicationsCtrl">
     <ul class="sidebar-menu sidebar-notification">
         <li class="static">RECENT JOB APPLICATIONS</li>
-        <li ng-repeat="app in applications | limitTo:4" ng-click="view($index)">
+        <li ng-repeat="app in applications | filter:'!seen'" ng-click="view(app.id)">
             <a href="" data-toggle="tooltip" title="{{app.attributes.name}}" data-placement="left">
                 <i class="fa fa-bookmark-o ava-sidebar"></i>
                 <!--<img src="assets/img/avatar/avatar.jpg" class="ava-sidebar img-circle" alt="Avatar">-->
