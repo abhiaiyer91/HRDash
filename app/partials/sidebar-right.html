@@ -30,13 +30,14 @@
         <li ng-repeat="app in applications | filter:'!seen'" ng-click="view(app.id)">
             <a href="" data-toggle="tooltip" title="{{app.attributes.name}}" data-placement="left">
                 <i class="fa fa-bookmark-o ava-sidebar"></i>
-                <!--<img src="assets/img/avatar/avatar.jpg" class="ava-sidebar img-circle" alt="Avatar">-->
                 <span class="activity">{{app.attributes.name}} - Job ID # {{app.attributes.job}}</span>
                 <span class="small-caps">{{app.createdAt | date}}</span>
              </a>
         </li>
 
-        <li class="static text-center"><button class="btn btn-primary btn-sm">See all notifications</button></li>
+        <div class="text-center">
+            <a class="btn btn-primary btn-sm" ng-href="#/applications">View All</a>
+        </div>
     </ul>
 </div>
 <div class="tab-pane fade" id="task-sidebar" ng-controller="OpeningList">
@@ -47,9 +48,11 @@
             {{job.attributes.title}}
             <span class="small-caps">{{job.attributes.loc}}</span>
         </a></li>
-        <li class="static text-center"><button ng-href="#/jobs" class="btn btn-primary btn-sm">View All</button></li>
-        <li class="static text-center"><button ng-href="#/new-job" class="btn btn-danger btn-sm">Post New Job</button></li>
     </ul>
+    <div class="text-center">
+        <a ng-href="#/jobs" class="btn btn-primary btn-sm">View All</a>
+        <a ng-href="#/new-job" class="btn btn-danger btn-sm">Post New Job</a>
+    </div>
 </div><!-- /#task-sidebar -->
 </div><!-- /.tab-content -->
 </div><!-- /.sidebar-right -->
