@@ -14,6 +14,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
@@ -23,36 +24,95 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div id='mahaska-menu' class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#"><img src="http://i1370.photobucket.com/albums/ag251/anthroisphoto/mahaskaprod/Global/logo_zps71293b31.png~original" class="img-responsive"/></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="pull-right menu-mahaska">
-              <li><a ng-href="#">Home</a></li>
-              <li><a ng-href="#/applications" ng-show="loggedIn()">Applications</a></li>
-              <li><a ng-href="#/jobs" ng-show="loggedIn()">Jobs</a></li>
-              <li class="dropdown" ng-show="loggedIn()">
-                <a href="" class="dropdown-toggle" data-toggle="dropdown">Welcome,  {{ currentUser.get("username") }} <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li ng-cloak ng-show="loggedIn()"><a href="#" ng-click="logout()">Log out</a></li>
-                </ul>
-              </li>
-              <li ng-cloak ng-hide="loggedIn()"><a href="#login">Log in</a></li>
+    <!-- BEGIN TOP NAV -->
+    <div class="top-navbar" ng-show="loggedIn()">
+        <div class="top-navbar-inner">
+
+    <!-- Begin Logo brand -->
+    <div class="logo-brand text-center">
+        <a href="#/"><img src="http://i1370.photobucket.com/albums/ag251/anthroisphoto/mahaskaprod/Global/logo_zps71293b31.png~original" class="img-responsive" style="display:inline;"/></a>
+    </div><!-- /.logo-brand -->
+    <!-- End Logo brand -->
+
+    <div class="top-nav-content">
+
+        <!-- Begin button sidebar right toggle -->
+        <div class="btn-collapse-sidebar-right" sidebar>
+            <i class="fa fa-bars"></i>
+        </div><!-- /.btn-collapse-sidebar-right -->
+        <!-- End button sidebar right toggle -->
+
+        <!-- Begin button nav toggle -->
+        <div class="btn-collapse-nav" data-toggle="collapse" data-target="#main-fixed-nav">
+            <i class="fa fa-plus icon-plus"></i>
+        </div><!-- /.btn-collapse-sidebar-right -->
+        <!-- End button nav toggle -->
+
+
+    <!-- Begin user session nav -->
+    <ul class="nav-user navbar-right">
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                Hi, <strong ng-cloak>{{ currentUser.get("username") }}</strong>
+            </a>
+            <ul class="dropdown-menu square primary margin-list-rounded with-triangle">
+                <!--<li><a href="#fakelink">Account</a></li>-->
+                <li ng-cloak ng-show="loggedIn()"><a href="" ng-click="logout()">Log out</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+        </li>
+    </ul>
+    <!-- End user session nav -->
 
+    <!-- Begin Collapse menu nav -->
+    <div class="collapse navbar-collapse" id="main-fixed-nav">
+    <!-- Begin nav search form -->
+    <!--<form class="navbar-form navbar-left" role="search">-->
+        <!--<div class="form-group">-->
+            <!--<input ng-model="global.search" type="text" class="form-control" placeholder="Search">-->
+        <!--</div>-->
+    <!--</form>-->
+    <!-- End nav search form -->
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="#/jobs">Jobs</a></li>
+        <li><a href="#/applications">Applications</a></li>
+        <li><a href="#/blogs">Blogs</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
 
+    <!-- Begin nav message -->
+    <li class="dropdown" ng-controller="ApplicationsCtrl">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="badge badge-success icon-count">{{appcount}}</span>
+            <i class="fa fa-envelope"></i>
+        </a>
+        <ul class="dropdown-menu square margin-list-rounded with-triangle" >
+            <li>
+                <div class="nav-dropdown-heading">
+                    Recent Applications
+                </div><!-- /.nav-dropdown-heading -->
+                <div class="nav-dropdown-content scroll-nav-dropdown">
+                    <ul>
+                        <li ng-click="view($index)" class="unread" ng-repeat="app in applications"><a href="">
+                            <i class="fa fa-bookmark-o ava-sidebar"></i>
+                            {{app.attributes.name}} - Job ID # {{app.attributes.job}}
+                            <span class="small-caps">{{app.createdAt | date}}</span>
+                        </a></li>
+                    </ul>
+                </div><!-- /.nav-dropdown-content scroll-nav-dropdown -->
+                <a href="#/jobs" class="btn btn-primary btn-square btn-block">See all</a>
+            </li>
+        </ul>
+    </li>
+    <!-- End nav message -->
+    </ul>
+    </div><!-- /.navbar-collapse -->
+    <!-- End Collapse menu nav -->
+    </div><!-- /.top-nav-content -->
+    </div><!-- /.top-navbar-inner -->
+    </div><!-- /.top-navbar -->
+    <!-- END TOP NAV -->
 
+    <div ng-show="loggedIn()" ng-include="'partials/sidebar-right.html'"></div>
 
 
 
@@ -61,12 +121,12 @@
       <div class="row">
           <div class="full-view" ng-view=""></div>
       </div>
-
-    <div class="footer">
-      <div class="container">
-        <p class="text-center lead"><a href="http://anthro.is"><img src="http://cdn.shopify.com/s/files/1/0467/3217/t/3/assets/icon_50x50.png?6783" alt=""></a></p>
-      </div>
-    </div>
+        <!-- BEGIN FOOTER -->
+        <footer>
+            &copy; 2014 <a href="http://anthro.is">anthro.is</a><br />
+            Powered by Mochi.io
+        </footer>
+        <!-- END FOOTER -->
 
 
     <!--[if lt IE 9]>
@@ -74,17 +134,6 @@
     <script src="scripts/vendor/json3.min.js"></script>
     <![endif]-->
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/underscore/underscore.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
@@ -102,6 +151,7 @@
         <!-- Angular Components -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/weatherCtrl.js"></script>
         <script src="scripts/controllers/loginCtrl.js"></script>
         <script src="scripts/controllers/jobSingleCtrl.js"></script>
         <script src="scripts/controllers/openingList.js"></script>
@@ -109,7 +159,10 @@
         <script src="scripts/services/parseService.js"></script>
         <script src="scripts/services/parseLoginService.js"></script>
         <script src="scripts/services/parseConstant.js"></script>
+        <script src="scripts/services/weatherService.js"></script>
         <script src="scripts/filters/truncateFilter.js"></script>
+        <script src="scripts/filters/unique.js"></script>
+        <script src="scripts/directives/sidebarDirective.js"></script>
 
         <!-- End Angular Components -->
 

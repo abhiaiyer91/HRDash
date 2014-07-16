@@ -1,10 +1,13 @@
 'use strict';
 
-window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$window', function ($scope, $location, Parse, $window) {
+window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$window', '$rootScope', function ($scope, $location, Parse, $window, $rootScope) {
 
 	function successHandler(response){
-		$scope.jobs = response;
+        console.log(response);
+		$rootScope.jobs = response;
+        $rootScope.jobcount = response.length;
 		$scope.$apply();
+
 	}
 	function errorHandler(error){
 		alert(error);

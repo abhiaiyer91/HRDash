@@ -6,7 +6,7 @@
       </div>
 
     <div class="row">
-      <div class="col-sm-6 job-tile"ng-repeat="job in jobs | filter:search">
+      <div class="col-sm-6 job-tile"ng-repeat="job in jobs | filter:global.search">
           <h4>{{job.attributes.title}}</h4>
           <br>
           <p class="lead">Location: {{job.attributes.loc}}</p>

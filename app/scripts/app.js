@@ -30,7 +30,7 @@
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'weatherCtrl'
       })
       .when('/applications', {
         templateUrl: 'views/application-list.html',

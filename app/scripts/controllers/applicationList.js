@@ -1,9 +1,9 @@
 'use strict';
 
-window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', function ($scope, $location, Parse) {
+window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', '$rootScope', function ($scope, $location, Parse, $rootScope) {
 	function successHandler(response){
 	    $scope.applications = response;
-			console.log($scope.applications);
+        $rootScope.appcount = response.length;
 	    $scope.$apply();
 	}
 	function errorHandler(error){
