@@ -1,6 +1,6 @@
 <h1 class="text-center">Applications</h1><hr>
 
-<input type="text" ng-model="search" class="text-center"/>
+<input type="text" placeholder="Search Applications" ng-model="search" class="app-search"/>
 <br>
 <br>
 <div class="row">
@@ -13,7 +13,7 @@
 
   	</thead>
   	<tbody>
-      <tr class="text-center" ng-repeat="app in applications | filter:search" ng-click="view(app.id)">
+      <tr class="text-center" ng-repeat="app in applications | orderBy:'-createdAt' | filter:search" ng-click="view(app.id)">
         <td>{{app.attributes.name}}</td>
         <td><a href="mailt:{{app.attributes.email}}" class="white">{{app.attributes.email}}</a></td>
         <td>{{app.attributes.job}}</td>
