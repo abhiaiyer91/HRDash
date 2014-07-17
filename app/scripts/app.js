@@ -3,29 +3,29 @@
 
   window.app = angular.module('hrdashApp', ['ngRoute', 'summernote']);
 
-  window.app.run(['$rootScope', '$location', function($rootScope, $location){
-      //Enumerate routes that don't need authentication
-      var routesThatDontRequireAuth = ['/login'];
+    app.config(function ($httpProvider) {
+        var logsOutUserOn401 = ['$q', '$location', function ($q, $location) {
+            var success = function (response) {
+                return response;
+            };
 
-      //check if current location matches route
-      var routeClean = function (route) {
-          return _.find(routesThatDontRequireAuth,
-              function (noAuthRoute) {
-                  return _.str.startsWith(route, noAuthRoute);
-              });
-      };
+            var error = function (response) {
+                if (response.status === 401) {
+                    //redirect them back to login page
+                    $location.path('/login');
 
-      $rootScope.$on('$routeChangeStart', function(event,next,current){
-          // if route requires auth and user is not logged in
-          if (!routeClean($location.url()) && !$rootScope.loggedIn()) {
-              // redirect back to login
-              $location.path('/login');
-          }
-      });
-  }]);
+                    return $q.reject(response);
+                } else {
+                    return $q.reject(response);
+                }
+            };
 
-   window.app.config(function($httpProvider){
-       $httpProvider.defaults.useXDomain = true;
+            return function (promise) {
+                return promise.then(success, error);
+            };
+        }];
+
+        $httpProvider.responseInterceptors.push(logsOutUserOn401);
     });
 
   window.app.config(['$routeProvider', function ($routeProvider) {
@@ -67,6 +67,42 @@
       });
   }]);
 
+   window.app.run(function ($rootScope, $location, ParseLoginService, RoleService) {
+
+        // enumerate routes that don't need authentication
+        var routesThatDontRequireAuth = ['/login'];
+        var routesForAdmin = ['/jobs'];
+
+        // check if current location matches route
+        var routeClean = function (route) {
+            return _.find(routesThatDontRequireAuth,
+                function (noAuthRoute) {
+                    return _.str.startsWith(route, noAuthRoute);
+                });
+        };
+
+        // check if current location matches route
+        var routeAdmin = function (route) {
+            return _.find(routesForAdmin,
+                function (noAuthRoute) {
+                    return _.str.startsWith(route, noAuthRoute);
+                });
+        };
+
+        $rootScope.$on('$routeChangeStart', function (ev, to, toParams, from, fromParams) {
+            // if route requires auth and user is not logged in
+            if (!routeClean($location.url()) && !$rootScope.loggedIn()) {
+                // redirect back to login
+                ev.preventDefault();
+                $location.path('/login');
+            }
+            else if (routeAdmin($location.url()) && !RoleService.validateRoleAdmin($rootScope.currentUser.attributes)) {
+                // redirect back to login
+                ev.preventDefault();
+                $location.path('/error');
+            }
+        });
+    });
 
 
 }(window));

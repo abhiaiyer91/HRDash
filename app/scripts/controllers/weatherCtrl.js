@@ -21,14 +21,6 @@ window.app.controller('weatherCtrl', ['$scope', 'weatherService', '$rootScope', 
 
     weatherService.fb().then(successFb,errorHandler);
 
-    weatherService.initialize();
-
-
-
-        weatherService.connectTwitter().then(function() {
-            console.log('hello');
-        });
-
 
 
 }]);
