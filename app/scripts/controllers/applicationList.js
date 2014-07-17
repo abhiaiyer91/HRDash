@@ -1,10 +1,8 @@
 'use strict';
 
-window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', '$rootScope', '$filter', function ($scope, $location, Parse, $rootScope, $filter) {
+window.app.controller('ApplicationsCtrl', ['$scope', '$location', 'Parse', '$filter', function ($scope, $location, Parse, $rootScope, $filter) {
 	function successHandler(response){
 	    $scope.applications = response;
-        $rootScope.appcount = response.length;
-        $rootScope.unseen = $filter('filter')($scope.applications,'!seen').length;
 	    $scope.$apply();
 	}
 	function errorHandler(error){
@@ -41,6 +39,26 @@ window.app.controller('topAppCtrl', ['$scope', '$location', 'Parse', '$filter', 
 	}
 }]);
 
+window.app.controller('NotificationsCtrl', ['$scope', '$location', '$rootScope', 'Parse', '$filter', function ($scope, $location, $rootScope, Parse, $filter) {
+	function successHandler(response){
+		$rootScope.appcount = response.length;
+	    $scope.applications = $filter('filter')(response,seen);
+	    $scope.$apply();
+	}
+	function errorHandler(error){
+	    console.log(error);
+	}
+
+	Parse.get().then(successHandler, errorHandler);
+
+	$scope.view = function (index) {
+		$location.path('/app/' + index);
+	}
+	function seen (app) {
+		return !app.attributes.viewed;
+	}
+}]);
+
 window.app.controller('ApplicationCtrl', ['$scope', '$route', 'Parse','$sce', function ($scope, $route, Parse, $sce) {
 	function successHandler(response){
 	    $scope.app = response;
@@ -48,7 +66,7 @@ window.app.controller('ApplicationCtrl', ['$scope', '$route', 'Parse','$sce', fu
 	    $scope.$apply();
 	}
 	function success (object) {
-		object.attributes.viewed = 'seen';
+		object.attributes.viewed = true;
 		object.save(object);
 	}
 	function successUp (object) {

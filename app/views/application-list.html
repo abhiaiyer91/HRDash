@@ -15,7 +15,7 @@
   	<tbody>
       <tr class="text-center" ng-repeat="app in applications | orderBy:'-createdAt' | filter:search" ng-click="view(app.id)">
         <td>{{app.attributes.name}}</td>
-        <td><a href="mailt:{{app.attributes.email}}" class="white">{{app.attributes.email}}</a></td>
+        <td><a href="mailto:{{app.attributes.email}}" class="white">{{app.attributes.email}}</a></td>
         <td>{{app.attributes.job}}</td>
         <td>{{app.createdAt | date}}</td>
       </tr>
