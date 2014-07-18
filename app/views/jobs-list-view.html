@@ -6,7 +6,8 @@
       </div>
 
     <div class="row">
-      <div class="col-sm-6 job-tile"ng-repeat="job in jobs | filter:global.search">
+      <div class="col-sm-6" ng-repeat="job in jobs | filter:global.search">
+        <div class="job-tile">
           <h4>{{job.attributes.title}}</h4>
           <br>
           <p class="lead">Location: {{job.attributes.loc}}</p>
@@ -15,6 +16,8 @@
             <a class="button-small mahaska_blue rounded" href= "" ng-click="view($index)">View</a>
             <a class="button-small btn-warning rounded" href= "" ng-click="viewSingle(job.id)">Edit</a>
           </div>
+        </div>
+        <br>
       </div>
     </div>
     <hr><br>

@@ -24,7 +24,6 @@ window.app.controller('MainCtrl', ['$scope', 'ParseLoginService', '$rootScope', 
   $scope.logout = function(){
     $rootScope.currentUser = null;
     return ParseLoginService.logout().then();
-    $location.path("#/login");
   };
 
   $rootScope.global = {

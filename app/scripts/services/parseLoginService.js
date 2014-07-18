@@ -1,4 +1,4 @@
-window.app.factory('ParseLoginService', ['parseConstant', function(parseConstant){
+window.app.factory('ParseLoginService', ['parseConstant', '$location', function(parseConstant, $location){
     return {
       login: function(data){
           var username = data.username;
@@ -9,6 +9,7 @@ window.app.factory('ParseLoginService', ['parseConstant', function(parseConstant
           return Parse.User.current();
       },
       logout: function(){
+          $location.path('/login');
           return Parse.User.logOut();
       }
     };
