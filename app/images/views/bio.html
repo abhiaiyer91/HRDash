@@ -1,0 +1,48 @@
+<section id="profile-page">
+	<div class="container">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-8">
+		<div class="row">
+			<div class="col-xs-12">
+				<img class="img-responsive" src="{{officer.img}}">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+			<br>
+				<h2>{{officer.name}}, {{officer.title}}</h2>
+				
+				<p ng-repeat="con in officer.content">{{con}}</p>
+			</div>
+		</div>
+		<br>
+		<div id="profile-social" ng-if="officer.link === 'Branden-Muhl'" class="row">
+			<div class="col-xs-12">
+				<ul class="social">
+					<li>
+						<a href="https://twitter.com/BrandenMuhl" target="_blank">
+						<img src="../images/about/twitter.png" alt="" class="img-responsive">
+						</a>
+					</li>
+					<li>
+						<a href="http://instagram.com/brandenmuhl" target="_blank">
+						<img src="../images/about/instagram.png" alt="" class="img-responsive">
+						</a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/in/brandenmuhl" target="_blank">
+						<img src="../images/about/linkedin.png" alt="" class="img-responsive">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</section>
+
+
+
+
+

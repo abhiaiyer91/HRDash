@@ -2,8 +2,7 @@ window.app.controller('weatherCtrl', ['$scope', 'weatherService', '$rootScope', 
     $scope.weatherArray = [];
 
     function successHandler(data){
-        var lol = data.current_observation
-        $scope.weatherArray.push(data.current_observation);
+       $scope.weatherArray.push(data.current_observation);
     }
 
     function successFb(data){

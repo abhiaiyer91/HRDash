@@ -1,0 +1,86 @@
+<div id="hero" class="hidden-xs">
+    <div class="container">
+    </div>
+</div>
+<div id="mobile-hero" class="visible-xs"></div>
+
+<section id="calls" class="container">
+    <div class="row">
+        <div class="col-sm-4 mobile-spacing text-center">
+            <a href="/#/services"><img class="img-thumbnail" src="../images/home/services_thumb.jpg"></a>
+        </div>
+        <div class="col-sm-4 mobile-spacing text-center">
+            <a href="/#/products"><img class="img-thumbnail" src="../images/home/products_thumb.jpg"></a>
+        </div>
+        <div class="col-sm-4 text-center">
+            <a href="/#/history"><img class="img-thumbnail" src="../images/home/mahaska_history.jpg"></a>
+        </div>
+    </div>
+</section>
+
+<section id="blurb">
+    <div class="container">
+        <p class="text-center lead">“At Mahaska, we venerate a rich American tradition that boasts generations of bottling in our blood.
+          <br> However, deference to history does not stop us from continuing to achieve the forward motion, innovation <br> and progress that is responsible for sustaining our enterprise through the generations.
+          These core values were<br> the hallmarks of the leader from whom we take our namesake, Chief Mahaska.”</p>
+        <p class="text-center">-Branden Muhl, CEO</p>
+    </div>
+</section>
+
+<section id="index-products">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h1>OUR PRODUCTS</h1>
+        <!--   <p class="lead">TOP | NEW | POPULAR</p> -->
+          <a href="#/products">VIEW ALL</a>
+          <!-- change to ul/li -->
+        </div>
+      </div>
+      <br/>
+        <div owl>
+          <div class="item text-center" ng-repeat="products in productsTop">
+            <img class="center-img img-responsive" src="{{products.src}}">
+          </div>
+        </div>
+    </div>
+</section>
+
+<section id="map">
+    <div class="container">
+        <div id="serve">
+            <div class="col-sm-5">
+                <h2>STATES WE SERVE</h2>
+                <p>We offer a wide array of our proprietary / partner brands, products, services, and distribution in Iowa, Kansas, Nebraska; and parts of Illinois, Missouri, and South Dakota. We offer our proprietary brands and certain products and services in California, New York, and Texas. Our proprietary brands, other products, and services are available anywhere in the continental U.S. upon specific request.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="partners">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h1>PARTNERS</h1>
+                <a href="#/partners">LEARN MORE</a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div owl class="owl-carousel">
+                <div class="item text-center" ng-repeat="partner in partners">
+                    <img class="img-thumbnail" src="{{partner.src}}">
+                </div>
+            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <p >“Mahaska was founded as a proprietary brand-driven bottling company that expanded under Harry Morgan into an independent franchisee. Today, we continue to advance our proprietary brands while remaining steadfast in our commitment to franchisor partners. I dedicated my career to the preservation of the franchise system and the rights of independent franchisees globally, not only in the beverage, but in all industries. The franchise system and the entrepreneurial spirit of the independent franchisee is an expression of core capitalist values that are uniquely American. As a result, we deeply value the relationships with our franchisor partners and continue our unwavering commitment to developing franchisor brands within our territories with the same vigor that we afford our proprietary brands."</p>
+                <p class="text-center">-Bradley G. Muhl, Chairman of the Board</p>
+            </div>
+        </div>
+    </div>
+</section>

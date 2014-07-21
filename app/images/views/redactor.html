@@ -1,0 +1,26 @@
+<section id="media-banner">
+  <h1>ADMIN</h1>
+</section>
+<br>
+
+<div class="container">
+
+<div ng-repeat="post in posts">
+  <div ng-bind-html="renderHtml(post.content)"></div>
+</div>
+
+</div>
+<section>
+  <div class="container">
+    <div class="col-sm-12">
+      <form method="post" ng-submit="submit()">
+          <textarea ui-tinymce ng-model="post.content"></textarea><br>
+          <input type="submit" class="btn-lg btn btn-primary">
+      </form>
+    </div>
+  </div>
+
+
+
+
+</section>
