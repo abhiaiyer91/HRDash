@@ -1,4 +1,4 @@
-<!doctype html> 
+<!doctype html>
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -76,7 +76,7 @@
     <ul class="nav navbar-nav navbar-left">
         <li ng-if="currentUser.attributes.role === 'admin'"><a href="#/jobs">Jobs</a></li>
         <li ng-if="currentUser.attributes.role === 'admin'"><a href="#/applications">Applications</a></li>
-        <li><a href="#/blogs">Blogs</a></li>
+        <li ng-if="currentUser.attributes.role === 'user'"><a href="#/blogs">Blogs</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
 
@@ -99,7 +99,7 @@
                             <span class="small-caps">{{app.createdAt | date}}</span>
                         </a></li>
                     </ul>
-                    
+
                 </div><!-- /.nav-dropdown-content scroll-nav-dropdown -->
                 <div class="text-center">
                     <a href="#/applications" class="btn btn-primary">See all</a>
@@ -127,7 +127,7 @@
       </div>
         <!-- BEGIN FOOTER -->
         <footer>
-            &copy; 2014 <a target="_blank" href="http://anthro.is">anthro.is</a><br />
+            &copy; 2014 anthro.is<!-- <a target="_blank" href="http://anthro.is">anthro.is</a> --><br />
             Powered by mochi.io
         </footer>
         <!-- END FOOTER -->

@@ -1,8 +1,16 @@
 <h1 class="text-center">Applications</h1><hr>
 
-<input type="text" placeholder="Search Applications" ng-model="search" class="app-search"/>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8">
+  <input type="text" class="form-control" placeholder="Search Applications" ng-model="search" class="app-search"/>
+  </div>
+  <div class="col-sm-2"></div>
+</div>
+
 <br>
 <br>
+<div class="container">
 <div class="row">
   <table class="flat-table flat-table-1" ng-controller="ApplicationsCtrl">
   	<thead>
@@ -21,4 +29,5 @@
       </tr>
   	</tbody>
   </table>
+</div>
 </div>

@@ -18,7 +18,7 @@
 
 <!-- BEGIN SiTE INFORMATIONS -->
 <div class="row">
-    <div ng-if="currentUser.attributes.role === 'admin'" class="col-sm-3">
+    <div ng-if="currentUser.attributes.role === 'admin'" class="col-sm-4">
         <div class="the-box no-border bg-success tiles-information">
             <i class="fa fa-users icon-bg"></i>
             <div class="tiles-inner text-center">
@@ -31,7 +31,7 @@
             </div><!-- /.tiles-inner -->
         </div><!-- /.the-box no-border -->
     </div><!-- /.col-sm-3 -->
-    <div ng-if="currentUser.attributes.role === 'admin'" class="col-sm-3">
+    <div ng-if="currentUser.attributes.role === 'admin'" class="col-sm-4">
         <div class="the-box no-border bg-primary tiles-information">
             <i class="fa fa-shopping-cart icon-bg"></i>
             <div class="tiles-inner text-center">
@@ -44,7 +44,7 @@
             </div><!-- /.tiles-inner -->
         </div><!-- /.the-box no-border -->
     </div><!-- /.col-sm-3 -->
-    <div class="col-sm-3">
+    <div class="col-sm-3" ng-if="currentUser.attributes.role === 'user'">
         <div class="the-box no-border bg-danger tiles-information">
             <i class="fa fa-comments icon-bg"></i>
             <div class="tiles-inner text-center">
@@ -57,7 +57,7 @@
             </div><!-- /.tiles-inner -->
         </div><!-- /.the-box no-border -->
     </div><!-- /.col-sm-3 -->
-    <div class="col-xs-3">
+    <div class="col-xs-4">
 
         <div class="the-box no-border tiles-information" style="padding-top: 0px;">
             <div class="tiles-inner text-center">

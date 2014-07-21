@@ -8,11 +8,11 @@
     <div class="row">
       <div class="col-sm-6" ng-repeat="job in jobs | filter:global.search">
         <div class="job-tile">
-          <h4>{{job.attributes.title}}</h4>
+          <h3 class="text-center">{{job.attributes.title}}</h3>
           <br>
-          <p class="lead">Location: {{job.attributes.loc}}</p>
-          <p>Summary: <br>{{job.attributes.description | truncate:200}}</p>
-          <div class="">
+          <p class="lead text-center">Location: {{job.attributes.loc}}</p>
+          <p class="text-center">Summary:</p><p>{{job.attributes.description | truncate:200}}</p>
+          <div class="text-center">
             <a class="button-small mahaska_blue rounded" href= "" ng-click="view($index)">View</a>
             <a class="button-small btn-warning rounded" href= "" ng-click="viewSingle(job.id)">Edit</a>
           </div>

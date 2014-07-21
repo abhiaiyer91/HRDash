@@ -62,6 +62,9 @@
          templateUrl: 'views/edit.html',
          controller: 'OpeningList'
       })
+      .when('/error', {
+        templateUrl: '404.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -71,7 +74,7 @@
 
         // enumerate routes that don't need authentication
         var routesThatDontRequireAuth = ['/login'];
-        var routesForAdmin = ['/jobs'];
+        var routesForAdmin = ['/jobs', '/applications','/new-job', '/job', '/app'];
 
         // check if current location matches route
         var routeClean = function (route) {
