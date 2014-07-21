@@ -1,0 +1,43 @@
+<section class="blog-banner">
+  <div class="container">
+    <div class="row text-center">
+      <h1>BLOG</h1>
+    </div>
+  </div>
+</section>
+
+<div class="light-wrapper">
+  <div class="container inner">
+    <div class="row">
+      <div class="col-sm-8 col-xs-12 content" infinite-scroll="pagingFunction()" infinite-scroll-distance="2">
+
+        <div class="post col-sm-6" ng-repeat="blog in blogs">
+          <figure><a href="#/blog/{{blog.id}}">
+            <div class="text-overlay">
+              <div class="info">Read More</div>
+            </div>
+            <img src="{{blog.img}}" alt="" /></a></figure>
+            <div class="image-caption">
+              <div class="date-wrapper">
+                <div class="day">{{blog.date | date:'dd'}}</div>
+                <div class="month">{{blog.date | date:'MMM'}}</div>
+              </div>
+              <h4 class="post-title"><a href="#/blog/{{blog.id}}">{{blog.title}}</a></h4>
+              <div class="meta"><span class="comments"><a href="{{blog.url}}#disqus_thread">0 Comments</a></span></div>
+              <div class="blog-content" ng-bind-html="(blog.content|limitTo:200) + '...'"></div>
+              <a href="#/blog/{{blog.id}}" class="more">Continue Reading  →</a> 
+
+            </div>
+            <br>
+            </div>
+            <!-- /.post -->
+            <hr />
+
+      </div>
+
+
+          <div ng-include="'views/sidebar.html'"></div>
+
+          </div>
+        </div>
+      </div>

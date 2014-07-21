@@ -1,0 +1,136 @@
+<section id="careers-banner">
+	<div class="container">
+	<br>
+		<div class="row text-center">
+			<h1 class="text-center">CAREERS</h1>
+			<p class="text-center lead">“Since my first day at Mahaska over 15 years ago, I’ve been a part of a team where the employees are given the chance to help <br>make decisions and share their ideas to help our company grow strong. I am so happy to be a part of a family owned business that truly cares about their employees and strives to make our community a better place. I’ve grown with company during these 15 years, starting as a part-time Weekend Merchandiser and now as the Chief Marketing Officer. I’ve never forgotten what originally brought me to Mahaska, which was the opportunity to be a part of a team composed of happy, hard working people who distribute products that make people smile!”</p>
+			<p class="text-center lead">- Chad Irving, Chief Marketing Officer</p>
+		</div>
+	</div>
+</section>
+
+<div class="container">
+	<section id="benefits">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<h1>BENEFITS</h1>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-sm-3 text-center benefit-container">
+				<div class="benefit">
+					<div>
+					<img class="img-thumbnail" src="/images/careers/401k.png">
+					</div>
+					<br>
+					<p>401k options available for eligible employees after 1 year of service</p><br>
+				</div>
+			</div>
+			<div class="col-sm-3 text-center benefit-container">
+				<div class="benefit">
+					<div>
+					<img class="img-thumbnail" src="/images/careers/health.png">
+					</div>
+					<br>
+					<p>Health, RX, Dental, Life Insurance, AD&D Insurance and AFLAC options.</p><br>
+				</div>
+			</div>
+			<div class="col-sm-3 text-center benefit-container">
+				<div class="benefit">
+					<div>
+					<img class="img-thumbnail" src="/images/careers/salary.png">
+					</div>
+					<br>
+					<p>Employees can purchase up to 5 cases of product a week at a discounted price.</p><br>
+				</div>
+			</div>
+			<div class="col-sm-3 text-center benefit-container">
+				<div class="benefit">
+					<div>
+					<img class="img-thumbnail" src="/images/careers/vacation.png">
+					</div>
+					<br>
+					<p>Flexible Spending Account (FSA) not subject to payroll taxes</p><br>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="jobs">
+		<div id="header" class="row">
+			<div class="col-sm-2">
+				<div class="nav-area">
+
+					<div class="dropdown">
+						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+							BY CITY
+							<span class="caret"></span>
+						</button>
+
+						<ul class="dropdown-menu">
+							<li ng-repeat="city in cities" ng-class="{'active' : selected===$index }"><a href="" ng-click="narrow(city, $index)">{{city}}</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<h2 class="text-center">CURRENT JOB OPENINGS</h2>
+			</div>
+		</div>
+		<br>
+		<div>
+			<div class="row joblist" ng-repeat="job in trabajo | filter:myFilter">
+				<div class="col-xs-12">
+					<h2>{{job.attributes.title | uppercase}} ({{job.attributes.city | uppercase}}, {{job.attributes.state}})<br> Job ID: {{job.attributes.job | uppercase}}</h2>
+					<p>{{job.attributes.description}}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="apply" class="no-section">
+<form name="form" ng-submit="post(data)">
+		<div class="row">
+			<div class="col-sm-8">
+				<h2>APPLY FOR A JOB</h2>
+
+					<label for="">Name:<span>*</span></label>
+					<input type="text" name="Name" ng-model="data.name" value="" required><br>
+					<label for="">Email:<span>*</span></label>
+					<input type="email" name="Email" ng-model="data.email" value="" required><br>
+					<label for="">Job:<span>*</span></label>
+					<select ng-model="data.job" name="Job">
+						<option ng-repeat="job in trabajo" value="{{job.attributes.job}}">{{job.attributes.job}}</option>
+					</select><br>
+					<label for="">Cover Letter/ Message:<span>*</span></label>
+					<textarea type="text" name="Message" ng-model="data.message" value="" rows="10" required></textarea><br>
+					<button type="submit" class="btn contact-btn">Submit</button>
+			</div>
+			<div class="col-sm-4">
+				<h2>ATTACHMENTS</h2>
+				<div class="row">
+					<br>
+					<div class="col-sm-12">
+						<div class="file-input-wrapper">
+							<button class="btn btn-upload">Upload</button>
+							<input type="file" name="file" class="btn btn-primary" id="input" required/>
+						</div>
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-sm-12">
+						<p class="lead">Upload your Resume / Cover Letter. PDF or Word doc only. 5MB Max.</p>
+						<p>An alert will trigger confirming that the resume was submitted.</p>
+					</div>
+					<div class="text-center">
+						<img src="../images/careers/arrows.png" alt="" class="img-responsive hidden-xs">
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</form>
+	</section>
+</div>

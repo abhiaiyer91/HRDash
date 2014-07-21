@@ -9,7 +9,7 @@
  */
 window.app.controller('MainCtrl', ['$scope', 'ParseLoginService', '$rootScope', '$location', function ($scope, ParseLoginService, $rootScope, $location) {
 
-  $rootScope.currentUser = ParseLoginService.getCurrentUser();
+  $rootScope.currentUser = ParseLoginService.getCurrent();
 
   $rootScope.loggedIn = function(){
     if ($rootScope.currentUser === null){
@@ -19,15 +19,17 @@ window.app.controller('MainCtrl', ['$scope', 'ParseLoginService', '$rootScope', 
     }
   };
 
+  function backtoLogin(){
+     $rootScope.currentUser = null;
+     $location.path("/login");
+  }
 
+  function errorHandler(error){
+     console.log(error);
+  }
 
   $scope.logout = function(){
-    $rootScope.currentUser = null;
-    return ParseLoginService.logout().then();
-  };
-
-  $rootScope.global = {
-     search: ''
+    ParseLoginService.logout().then(backtoLogin, errorHandler);
   };
 
 }]);

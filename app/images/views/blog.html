@@ -1,0 +1,31 @@
+<section class="blog-banner">
+  <div class="container">
+    <div class="row text-center">
+      <h1>{{blog.title|uppercase}}</h1>
+    </div>
+  </div>
+</section>
+
+<div class="light-wrapper">
+  <div class="container inner">
+    <div class="row">
+		<div class="col-sm-8 col-xs-12">
+			<div class="text-center">
+				<img src="{{blog.img}}" alt="" class="img-responsive center-img">
+			</div>
+			<h2 class="text-left">{{blog.title}}</h2>
+			<p class="meta"><span class="date">Posted on <a href="">{{blog.date | date:'d MMM yyyy'}}</a></span> | <span class="comments"><a href="{{blog.id}}#disqus_thread">0 Comments</a></span>
+			<span class="pad-left">
+				<i class="fa-arrow-up fa" ng-click="voteUp()"></i>
+				<i class="fa-arrow-down fa" ng-click="voteDown()"></i>
+				{{blog.votes}}
+			</span>
+			</p>
+			<div ng-bind-html="blog.content"></div>
+			<a href="#/blog" class="more">← All Posts</a>
+			<br><br>
+		</div>
+		<div ng-include="'views/sidebar.html'"></div>
+    </div>
+  </div>
+</div>

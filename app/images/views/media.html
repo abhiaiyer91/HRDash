@@ -1,0 +1,18 @@
+<section id="media-banner">
+	<div class="container">
+		<div class="row">
+			<h1 class="text-center">MEDIA</h1>
+		</div>
+	</div>
+</section>
+
+<section id="media-gallery">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4" ng-repeat="tile in album">
+				<a href="/#/media/{{tile.link}}"><img class="img-responsive" src="{{tile.src}}"></a><br>
+			</div>
+		</div>
+		<br>
+	</div>
+</section>

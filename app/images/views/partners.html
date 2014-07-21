@@ -1,0 +1,31 @@
+<section id="partners-banner">
+	<div class="container">
+		<div class="row text-center">
+		<br>
+			<h1>PARTNERS</h1>
+			<p class="lead">“Mahaska was founded as a proprietary brand-driven bottling company that expanded under Harry Morgan into an independent franchisee.
+			Today, we continue to advance our proprietary brands while remaining steadfast in our commitment to franchisor partners. I dedicated my career to the preservation of the franchise system and the rights of independent franchisees globally, not only in the beverage, but in all industries. The franchise system and the entrepreneurial spirit of the independent franchisee is an expression of core capitalist values that are uniquely American.
+			As a result, we deeply value the relationships with our franchisor partners and continue our unwavering commitment to developing franchisor brands within our territories with the same vigor that we afford our proprietary brands."
+			</p>
+			<div id="scroll-point"></div>
+			<p>-Bradley G. Muhl, <br>Chairman of the Board</p>
+		</div>
+	</div>
+</section>
+<ul class="partner-tabs text-center">
+	<li ng-class="{curr: active==='Brand'}" ng-click="show('Brand')" du-smooth-scroll href="#scroll-point"><h4>BRAND PARTNERS</h4></li>
+	<li ng-class="{curr: active==='Snack'}" ng-click="show('Snack')" du-smooth-scroll href="#scroll-point"><h4>SNACK BRANDS</h4></li>
+ 	<li ng-class="{curr: active==='Athlete'}" ng-click="show('Athlete')" du-smooth-scroll href="#scroll-point"><h4>SPONSORED ATHLETES</h4></li>
+ 	<li ng-class="{curr: active==='Media'}" ng-click="show('Media')" du-smooth-scroll href="#scroll-point"><h4>MEDIA PARTNERS</h4></li>
+</ul>
+<section class="partner-display">
+	<div class="container">
+		<div ng-repeat="partner in partners" ng-class="{row: ($index+1)%3===0}">
+			<div class="col-sm-4 text-center partner-indiv">
+				<img src="{{partner.PhotobucketUrl}}" alt="" class="center-img">
+				<p ng-if="partner.PhotobucketUrl===''"><br>{{partner.Name}}<br></p>
+				<p ng-if="partner.PartnerType==='Sponsored Athletes'"><a target="_blank" href="{{partner.link}}">{{partner.Name}}</a></p>
+			</div>
+		</div>
+	</div>
+</section>
