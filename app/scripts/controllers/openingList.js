@@ -1,9 +1,8 @@
 'use strict';
 
-window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$rootScope', function ($scope, $location, Parse, $rootScope) {
+window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$rootScope','$sce','$filter', function ($scope, $location, Parse, $rootScope, $sce, $filter) {
 
 	function successHandler(response){
-        console.log(response);
 		$rootScope.jobs = response;
         $rootScope.jobcount = response.length;
 		$scope.$apply();
@@ -20,26 +19,30 @@ window.app.controller('OpeningList', ['$scope','$location', 'Parse', '$rootScope
 
 	$scope.view = function (index) {
 		$location.path('/job/' + index);
-	}
+	};
+
+	$scope.truncHtml = function (data) {
+		var str = $filter('limitTo')(data, 200)+"..."; 
+		return $sce.trustAsHtml(str);
+	};
 }]);
 
 window.app.controller('OpeningCtrl', ['$scope', '$route', '$filter','Parse', function ($scope, $route, $filter, Parse) {
 
 	function successJob(response){
-		$scope.job = response[$route.current.params.id];
+		$scope.job = response;
 		Parse.get().then(successApp, errorHandler);
-		$scope.$apply();
 	}
 	function successApp(response){
 		$scope.apps = response;
-		$scope.applications = $filter('filter')($scope.apps, $scope.job.attributes['job']);
+		$scope.applications = $filter('filter')($scope.apps, $scope.job.id);
 		$scope.$apply();
 	}
 	function errorHandler(error){
 		alert(error);
 	}
 
-	Parse.getJob().then(successJob, errorHandler);
+	Parse.getJobById($route.current.params.id).then(successJob, errorHandler);
 
 }]);
 

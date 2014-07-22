@@ -1,7 +1,7 @@
 (function(window){
 'use strict';
 
-  window.app = angular.module('hrdashApp', ['ngRoute', 'summernote']);
+  window.app = angular.module('hrdashApp', ['ngRoute', 'summernote', 'ngSanitize']);
 
     app.config(function ($httpProvider) {
         var logsOutUserOn401 = ['$q', '$location', function ($q, $location) {

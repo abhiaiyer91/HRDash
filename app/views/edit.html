@@ -14,7 +14,6 @@
         <div class="col-sm-6">
             <h1 class="text-center">Title: {{data.title}}</h1>
             <p class="lead text-center">Location: {{data.loc}}</p>
-            <p class="lead text-center">Id: {{data.job}}</p>
             <p>Summary: <br>{{data.description}}</p>
             <div class="text-center">
                 <a class="button-small red_dark rounded" ng-click="delete()">Delete</a>
@@ -25,7 +24,6 @@
             <form ng-submit="update(job.id)">
                 <input type="text" ng-click="data.title = null" ng-init="data.title = 'Enter New Title'" ng-model="data.title" class='form-control' placeholder="Enter Title"><br>
                 <input type="text" ng-click="data.loc = null" ng-init="data.loc = 'Enter New Location'" ng-model="data.loc" class='form-control' placeholder="Enter Location"><br>
-                <input type="text" ng-click="data.job = null" ng-init="data.job = 'Enter New Job Id'" ng-model="data.job" class='form-control' placeholder="Enter Job"><br>
                 <textarea cols="22" ng-click="data.description = null" ng-init="data.description = 'Enter New Description'" rows="5" ng-model="data.description" class='form-control' placeholder="Enter Description"></textarea><br>
                 <input type="submit" class="button-small btn-warning rounded">
             </form>

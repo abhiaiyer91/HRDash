@@ -9,7 +9,7 @@
 			</tr>
 		</thead>
 		<tbody class="sidebar-table">
-			<tr ng-repeat="job in jobs | filter:search" ng-click="view($index)">
+			<tr ng-repeat="job in jobs | filter:search" ng-click="view(job.id)">
 				<td>{{job.attributes.title}}</td>
 				<td>{{job.attributes.loc}}</td>
 			</tr>
