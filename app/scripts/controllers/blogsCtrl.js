@@ -28,6 +28,7 @@ window.app.controller('AddBlogCtrl', ['$scope', 'Parse', function ($scope, Parse
 	$scope.data = {};
 
 	$scope.post = function () {
+		$scope.data.votes = 0;
 		$scope.data.tags = $scope.data.tags.split(',');
 		Parse.postBlog($scope.data).then(successHandler, errorHandler);
 	}
