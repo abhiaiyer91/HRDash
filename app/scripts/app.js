@@ -54,6 +54,14 @@
         templateUrl: 'views/app.html',
         controller: 'ApplicationCtrl'
       })
+      .when('/blogs', {
+        templateUrl: 'views/blogs.html',
+        controller: 'BlogsCtrl'
+      })
+      .when('/new-blog', {
+        templateUrl: 'views/add-blog.html',
+        controller: 'AddBlogCtrl'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'loginCtrl'

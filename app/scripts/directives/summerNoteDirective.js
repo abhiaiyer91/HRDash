@@ -4,7 +4,7 @@ window.app.directive('summernote', function(){
        link: function(scope,elm,attrs){
            if (elm.length > 0){
                elm.summernote({
-                   height: 400
+                   height: attrs.height || 400
                });
            }
        }

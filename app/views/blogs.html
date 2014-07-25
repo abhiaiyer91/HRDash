@@ -1,0 +1,24 @@
+
+<div class="container">
+  <div class="row">
+      <h1 class="text-center">Current Blogs</h1><hr>
+      <a ng-href="#/new-blog" class="button-small rounded btn-danger pull-right">Post New Blog</a>
+  </div>
+
+<div class="row">
+  <div class="col-sm-6" ng-repeat="blog in blogs">
+    <div class="job-tile">
+      <h3 class="text-center">{{blog.attributes.title}}</h3>
+      <br>
+      <p class="lead text-center">Location: {{blog.attributes.author}}</p>
+      <p class="text-center">Summary:</p><div ng-bind-html="truncHtml(blog.attributes.content)"></div>
+      <div class="text-center">
+        <a class="button-small mahaska_blue rounded" href= "" ng-click="view(blog.id)">View</a>
+        <a class="button-small btn-warning rounded" href= "" ng-click="viewSingle(blog.id)">Edit</a>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+<hr><br>
+</div>

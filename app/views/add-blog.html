@@ -1,0 +1,40 @@
+<h1 class="text-center">New Blog</h1><br>
+
+<div class="container">
+	<div class="row">
+        <div class="col-sm-8">
+            <div class="the-box">
+                <h4 class="small-title">ENTER DETAILS FOR NEW Blog POSTING</h4>
+                <form ng-submit="post()">
+                    <div class="form-group">
+                        <input type="text" ng-model="data.title" class='form-control' placeholder="Enter Title" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="data.author" class='form-control' placeholder="Enter Author" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="data.image" class='form-control' placeholder="Enter Main Image Url" required>
+                    </div>
+
+                    <div class="form-group">
+                        <h4>Enter Content</h4>
+                        <summernote height="400" config="options" ng-model="data.content"></summernote>
+                        {{data.content}}
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="data.tags" class='form-control' placeholder="Enter Tags seperated by a comma" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" class="i-grey-flat" required> I've checked and have followed procedure.
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger"><i class="fa fa-sign-in"></i> Submit</button>
+                </form>
+            </div><!-- /.the-box -->
+        </div>
+        <div class="col-sm-4">Insert documentation here</div>
+    </div>
+</div>
