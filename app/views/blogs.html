@@ -2,19 +2,21 @@
 <div class="container">
   <div class="row">
       <h1 class="text-center">Current Blogs</h1><hr>
+      <input type="text" ng-model="search" placeholder="Search Blogs" class="pull-left">
       <a ng-href="#/new-blog" class="button-small rounded btn-danger pull-right">Post New Blog</a>
   </div>
 
 <div class="row">
-  <div class="col-sm-6" ng-repeat="blog in blogs">
+  <div class="col-sm-6" ng-repeat="blog in blogs | filter:search">
     <div class="job-tile">
       <h3 class="text-center">{{blog.attributes.title}}</h3>
       <br>
-      <p class="lead text-center">Location: {{blog.attributes.author}}</p>
+      <p class="lead text-center">Author: {{blog.attributes.author}}</p>
+      <p>Tags: <span ng-repeat="tag in blog.attributes.tags">{{tag}}<span ng-if="!$last">, </span></span></p>
       <p class="text-center">Summary:</p><div ng-bind-html="truncHtml(blog.attributes.content)"></div>
       <div class="text-center">
-        <a class="button-small mahaska_blue rounded" href= "" ng-click="view(blog.id)">View</a>
-        <a class="button-small btn-warning rounded" href= "" ng-click="viewSingle(blog.id)">Edit</a>
+        <a class="button-small mahaska_blue rounded" target="_blank" href="http://mahaskabottling.parseapp.com/#/blog/{{blog.id}}">View</a>
+        <a class="button-small btn-warning rounded" ng-href="#/blog/{{blog.id}}/edit">Edit</a>
       </div>
     </div>
     <br>

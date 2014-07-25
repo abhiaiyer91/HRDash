@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row" ng-hide="editForm">
+        <div class="col-sm-12">
+            <h1 class="text-center">{{blog.attributes.title}}</h1>
+            <p class="lead text-center">Author: {{blog.attributes.author}}</p>
+            <div class="text-center">
+            <img src="{{blog.attributes.image}}" alt="" class="img-responsive img-center">
+            </div>
+            <p>Tags: <span ng-repeat="tag in blog.attributes.tags">{{tag}}<span ng-if="!$last">, </span></span></p>
+            <p class="text-center">Content:</p>
+            <div ng-bind-html="trust(blog.attributes.content)"></div>
+            <div class="text-center">
+                <a class="button-small btn-warning rounded" ng-click="editForm=true">Edit Listing</a>
+                <a class="button-small red_dark rounded" ng-click="delete()">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="editForm">
+        <div class="col-sm-6">
+            <h1 class="text-center">Title: {{data.title}}</h1>
+            <p class="lead text-center">Author: {{data.author}}</p>
+            <div class="text-center">
+            <img src="{{data.image}}" alt="" class="img-responsive img-center">
+            </div>
+            <p>Tags: <span ng-repeat="tag in data.tags">{{tag}}<span ng-if="!$last">, </span></span></p>
+            <p>Summary:</p>
+            <div ng-bind-html="trust(data.content)"></div>
+            <div class="text-center">
+                <a class="button-small btn-warning rounded" ng-click="cancel()">Cancel</a>
+                <a class="button-small red_dark rounded" ng-click="delete()">Delete</a>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <h1 class="text-center">Edit Blog Posting</h1>
+            <form ng-submit="update()">
+                <label>Title</label><br>
+                <input type="text" ng-model="data.title" class='form-control' placeholder="Enter Title"><br>
+                <label>Author</label><br>
+                <input type="text" ng-model="data.author" class='form-control' placeholder="Enter Author"><br>
+                <label>Image Url</label><br>
+                <input type="text" ng-model="data.image" class='form-control' placeholder="Enter Image Url"><br>
+                <!-- <textarea cols="22" ng-click="data.description = null" ng-init="data.description = 'Enter New Description'" rows="5" ng-model="data.description" class='form-control' placeholder="Enter Description"></textarea><br> -->
+                <input type="submit" class="button-small btn-warning rounded">
+            </form>
+        </div>
+    </div>
+</div>

@@ -58,6 +58,15 @@
         templateUrl: 'views/blogs.html',
         controller: 'BlogsCtrl'
       })
+      .when('/blog/:id/edit', {
+        templateUrl: 'views/blog-edit.html',
+        controller: 'EditBlogCtrl',
+        resolve: {
+          blog: function (Parse, $route) {
+            return Parse.getBlogById($route.current.params.id).then(function (data) {return data;});
+          } 
+        }
+      })
       .when('/new-blog', {
         templateUrl: 'views/add-blog.html',
         controller: 'AddBlogCtrl'
