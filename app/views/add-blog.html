@@ -22,10 +22,14 @@
                         {{data.content}}
                     </div>
                     <div class="form-group">
-												<input ng-model="data.tags" name="tags" tags id="tags" value="" class='form-control' required/> <br>
+												<!-- <input ng-model="data.tags" name="tags" tags id="tags" value="" class='form-control' required/> <br> -->
+												<bootstrap-tagsinput
+												  ng-model="data.tags">
+												</bootstrap-tagsinput>
 
                         <!-- <input type="text" ng-model="data.tags" class='form-control' placeholder="Enter Tags seperated by a comma" required> -->
                     </div>
+										{{data.tags}}
                     <div class="form-group">
                         <div class="checkbox">
                             <label>

@@ -18,28 +18,6 @@ window.app.controller('BlogsCtrl', ['$scope', '$sce', '$filter', 'Parse', functi
 
 window.app.controller('AddBlogCtrl', ['$scope', 'Parse', function ($scope, Parse) {
 
-	$scope.cities = [
-        { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    },
-        { "value": 4 , "text": "Washington"  , "continent": "America"   },
-        { "value": 7 , "text": "Sydney"      , "continent": "Australia" },
-        { "value": 10, "text": "Beijing"     , "continent": "Asia"      },
-        { "value": 13, "text": "Cairo"       , "continent": "Africa"    }
-      ];
-
-      $scope.queryCities = function(query) {
-        return $http.get('cities.json');
-      };
-
-      $scope.getTagClass = function(city) {
-        switch (city.continent) {
-          case 'Europe'   : return 'badge badge-info';
-          case 'America'  : return 'label label-important';
-          case 'Australia': return 'badge badge-success';
-          case 'Africa'   : return 'label label-inverse';
-          case 'Asia'     : return 'badge badge-warning';
-        }
-      };
-
 	function successHandler(response) {
 		alert("Your post has been saved");
 		$scope.data = {};
@@ -52,7 +30,7 @@ window.app.controller('AddBlogCtrl', ['$scope', 'Parse', function ($scope, Parse
 
 	$scope.post = function () {
 		$scope.data.votes = 0;
-		$scope.data.tags = $scope.data.tags.split(',');
+		// $scope.data.tags = $scope.data.tags.split(',');
 		Parse.postBlog($scope.data).then(successHandler, errorHandler);
 	}
 }]);
