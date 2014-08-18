@@ -5,6 +5,7 @@ window.app.controller('jobSingleCtrl', ['$scope', '$location', 'Parse', '$window
     $scope.toggleEditView = function(){
         $scope.editView = false;
         $scope.editForm = true;
+        $scope.data = $scope.job.attributes;
     }
 
     function successHandler(response){

@@ -22,9 +22,9 @@
         <div class="col-sm-6">
             <h1 class="text-center">Edit Job Posting</h1>
             <form ng-submit="update(job.id)">
-                <input type="text" ng-click="data.title = null" ng-init="data.title = 'Enter New Title'" ng-model="data.title" class='form-control' placeholder="Enter Title"><br>
-                <input type="text" ng-click="data.loc = null" ng-init="data.loc = 'Enter New Location'" ng-model="data.loc" class='form-control' placeholder="Enter Location"><br>
-                <textarea cols="22" ng-click="data.description = null" ng-init="data.description = 'Enter New Description'" rows="5" ng-model="data.description" class='form-control' placeholder="Enter Description"></textarea><br>
+                <input type="text" ng-model="data.title" class='form-control' placeholder="Enter Title"><br>
+                <input type="text"  ng-model="data.loc" class='form-control' placeholder="Enter Location"><br>
+                <summernote ng-model="data.description"></summernote><br>
                 <input type="submit" class="button-small btn-warning rounded">
             </form>
         </div>
